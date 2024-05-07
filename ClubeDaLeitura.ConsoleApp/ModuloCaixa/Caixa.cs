@@ -14,14 +14,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public string Cor { get; set; }
         public string DiasEmprestimo { get; set; }
        
+        //Adicionar Revista
 
         public Caixa() { }
 
-        public Caixa(string etiqueta, string cor, string diasemprestimo)
+        public Caixa(string etiqueta, string cor, string diasemprestimo ) //Adicionar revista
         {
             Etiqueta = etiqueta;
             Cor = cor;
             DiasEmprestimo = diasemprestimo;
+            //Adicionar revista
+
         }
 
         public override string[] Validar()
@@ -38,6 +41,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             if (string.IsNullOrEmpty(DiasEmprestimo))
                 erros[contadorErros++] = ("O campo \"Dias de emprestimo\" é obrigatório");
 
+            //Adicionar revista
 
             string[] errosFiltrados = new string[contadorErros];
 

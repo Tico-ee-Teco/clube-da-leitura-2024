@@ -23,7 +23,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 
             Console.WriteLine(
                 "{0, -10} | {1, -20} | {2, -20} | {3, -20}  ",
-                "Id", "Etiqueta", "Cor", "Dias de emprestimo maximo"
+                "Id", "Etiqueta", "Cor", "Dias de emprestimo maximo" // Adicionar revista
                 );
 
             EntidadeBase[] caixascadastradas = repositorio.SelecionarTodos();
@@ -33,7 +33,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 if (caixa == null)
                     continue;
 
-                Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -20} ",
+                Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -20} ", //Adicionar revista
                caixa.Id, caixa.Etiqueta, caixa.Cor, caixa.DiasEmprestimo
                 );
             }
@@ -53,13 +53,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Console.WriteLine("Digite o numero de dias maximo para emprestimos:");
             string emprestimomaximo = Console.ReadLine();
 
+            //Adicionar revista
 
            // int Valordediasparaemprestimo = Convert.ToInt32(emprestimomaximo);
 
            //Valor convertido para futuramente sabermos quantos dias e o emprestimo maximo da caixa, usaremos no modulo de emprestimo.
 
 
-            Caixa caixa = new Caixa(etiqueta, cor, emprestimomaximo);
+            Caixa caixa = new Caixa(etiqueta, cor, emprestimomaximo); //Adicionar revista
 
             return caixa;
         }
