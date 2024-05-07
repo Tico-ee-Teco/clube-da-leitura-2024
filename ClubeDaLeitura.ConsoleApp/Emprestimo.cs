@@ -1,50 +1,9 @@
-﻿using System;
+﻿using ClubeDaLeitura.ConsoleApp.Moduloamigo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ClubeDaLeitura.ConsoleApp
-{
-    public class Emprestimo
-    {
-        public Amigo Amigo
-        {
-            get => default;
-            set
-            {
-            }
-        }
+namespace ClubeDaLeitura.ConsoleApp { }
 
-        public Revista Revista
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public bool Concluido
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public System.DateTime Data
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public System.DateTime DataDevolucao
-        {
-            get => default;
-            set
-            {
-            }
-        }
-    }
-}
+    

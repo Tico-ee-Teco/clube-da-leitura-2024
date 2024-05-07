@@ -9,14 +9,6 @@ namespace ClubeDaLeitura.ConsoleApp
     {
         private System.DateTime dataAbertura;
 
-        public Amigo Amigo
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public Revista Revista
         {
             get => default;
