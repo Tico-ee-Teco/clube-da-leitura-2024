@@ -6,6 +6,7 @@ using System.Text;
 namespace ClubeDaLeitura.ConsoleApp
 {
     public class Revista
-    { }
+    {
+    }
    
 }
