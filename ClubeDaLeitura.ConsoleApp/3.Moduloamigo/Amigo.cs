@@ -1,5 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 {
-    internal  class Amigo : EntidadeBase
+    internal class Amigo : EntidadeBase
     {
 
         public string Nome { get; set; }
@@ -25,30 +27,34 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             Endereco = endereco;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+           
+            ArrayList erros = new ArrayList();
 
             if (string.IsNullOrEmpty(Nome))
-                erros[contadorErros++] = ("O campo \"nome\" é obrigatório");
+                erros.Add("O campo \"nome\" é obrigatório");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros[contadorErros++] = ("O campo \"telefone\" é obrigatório");
+                erros.Add("O campo \"telefone\" é obrigatório");
 
             if (string.IsNullOrEmpty(Nomeresponsavel))
-                erros[contadorErros++] = ("O campo \"Nome responsavel\" é obrigatório");
+                erros.Add("O campo \"Nome responsavel\" é obrigatório");
 
             if (string.IsNullOrEmpty(Endereco))
-                erros[contadorErros++] = ("O campo \"Endereço\" é obrigatório");
+                erros.Add("O campo \"Endereço\" é obrigatório");
 
-            string[] errosFiltrados = new string[contadorErros];
+            return erros;
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
+        }
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Amigo novasInformacoes = (Amigo)novoRegistro;
 
-            return errosFiltrados;
-
-
+            this.Nome = novasInformacoes.Nome;
+            this.Telefone = novasInformacoes.Telefone;
+            this.Nomeresponsavel = novasInformacoes.Nomeresponsavel;
+            this.Endereco = novasInformacoes.Endereco;
         }
     }
 }
