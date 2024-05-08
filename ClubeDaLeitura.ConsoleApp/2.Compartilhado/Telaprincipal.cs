@@ -14,8 +14,8 @@
 
             Console.WriteLine("1 - Cadastro de Amigos");
             Console.WriteLine("2 - Cadastro de Caixas");
-            Console.WriteLine("3 - Cadastro de Reservas");
-            Console.WriteLine("4 - Cadastro de Revistas");
+            Console.WriteLine("3 - Cadastro de Revistas");
+            Console.WriteLine("4 - Cadastro de Reservas");
             Console.WriteLine("5 - Visualizaçao de multas");           
 
             Console.WriteLine("S - Sair");

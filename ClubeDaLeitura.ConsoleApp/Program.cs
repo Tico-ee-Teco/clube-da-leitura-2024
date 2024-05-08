@@ -1,4 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.Moduloamigo;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -6,6 +8,23 @@ namespace ClubeDaLeitura.ConsoleApp
     {
         static void Main(string[] args)
         {
+
+            repositorioamigo repositorioamigo = new repositorioamigo();
+            TelaAmigo telaAmigo = new TelaAmigo();
+            telaAmigo.tipoEntidade = "Amigo";
+            telaAmigo.repositorio = repositorioamigo;
+
+            telaAmigo.CadastraramigoTeste();
+
+            RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+            TelaCaixa telaCaixa = new TelaCaixa();
+            telaCaixa.tipoEntidade = "Caixa";
+            telaCaixa.repositorio = repositorioCaixa;
+            
+
+            telaCaixa.CadastrarcaixaoTeste();
+
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -15,26 +34,26 @@ namespace ClubeDaLeitura.ConsoleApp
 
                  Telabase  tela = null;
 
-                if (opcaoPrincipalEscolhida == '1') ;
+                if (opcaoPrincipalEscolhida == '1')
+                    tela = telaAmigo;
+
+                else if (opcaoPrincipalEscolhida == '2')
+                    tela = telaCaixa;
 
 
-                //else if (opcaoPrincipalEscolhida == '2') ;
-
-
-
-                //else if (opcaoPrincipalEscolhida == '3') ;
-
-
-
-                //else if (opcaoPrincipalEscolhida == '4') ;
+                else if (opcaoPrincipalEscolhida == '3') ;
 
 
 
-                //else if (opcaoPrincipalEscolhida == '5') ;
+                else if (opcaoPrincipalEscolhida == '4') ;
 
 
 
-                //else if (opcaoPrincipalEscolhida == '6') ;
+                else if (opcaoPrincipalEscolhida == '5') ;
+
+
+
+                else if (opcaoPrincipalEscolhida == '6') ;
 
 
 
