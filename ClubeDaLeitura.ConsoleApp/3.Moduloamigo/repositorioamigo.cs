@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 {
-    internal class repositorioamigo : Repositoriobase
+    internal class RepositorioAmigo : Repositoriobase
     {
     }
 }
