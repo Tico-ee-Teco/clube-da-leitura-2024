@@ -20,6 +20,7 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
+            
 
             telaCaixa.CadastrarcaixaoTeste();
 
@@ -33,26 +34,26 @@ namespace ClubeDaLeitura.ConsoleApp
 
                  Telabase  tela = null;
 
-                if (opcaoPrincipalEscolhida == '1') 
-                tela = telaAmigo;
+                if (opcaoPrincipalEscolhida == '1')
+                    tela = telaAmigo;
 
-                else if (opcaoPrincipalEscolhida == '2') 
-                tela = telaCaixa;
-
-
-                else if (opcaoPrincipalEscolhida == '3') 
+                else if (opcaoPrincipalEscolhida == '2')
+                    tela = telaCaixa;
 
 
-
-                else if (opcaoPrincipalEscolhida == '4') 
+                else if (opcaoPrincipalEscolhida == '3') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '5') 
+                else if (opcaoPrincipalEscolhida == '4') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '6') 
+                else if (opcaoPrincipalEscolhida == '5') ;
+
+
+
+                else if (opcaoPrincipalEscolhida == '6') ;
 
 
 

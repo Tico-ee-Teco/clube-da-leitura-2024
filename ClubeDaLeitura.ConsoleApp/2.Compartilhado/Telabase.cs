@@ -56,7 +56,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             repositorio.Cadastrar(entidade);
 
-            ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
+            ExibirMensagem($" {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
         }
 
         public void Editar()
@@ -74,7 +74,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (!repositorio.Existe(idEntidadeEscolhida))
             {
-                ExibirMensagem($"O {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
+                ExibirMensagem($" {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
                 return;
             }
 
-            ExibirMensagem($"O {tipoEntidade} foi editado com sucesso!", ConsoleColor.Green);
+            ExibirMensagem($" {tipoEntidade} foi editado com sucesso!", ConsoleColor.Green);
         }
 
         public void Excluir()
@@ -116,7 +116,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (!repositorio.Existe(idRegistroEscolhido))
             {
-                ExibirMensagem($"O {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
+                ExibirMensagem($" {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
                 return;
             }
 
@@ -128,7 +128,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
                 return;
             }
 
-            ExibirMensagem($"O {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
+            ExibirMensagem($" {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
         }
 
         public abstract void VisualizarRegistros(bool exibirTitulo);
@@ -149,7 +149,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|       Controle de Medicamentos       |");
+            Console.WriteLine("|            Clube do livro            |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();
