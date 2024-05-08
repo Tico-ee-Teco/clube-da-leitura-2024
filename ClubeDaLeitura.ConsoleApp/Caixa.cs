@@ -1,4 +1,6 @@
-﻿namespace ClubeDaLeitura.ConsoleApp
+﻿using ClubeDaLeitura.ConsoleApp.ModuloRevista;
+
+namespace ClubeDaLeitura.ConsoleApp
 {
     public class Caixa
     {

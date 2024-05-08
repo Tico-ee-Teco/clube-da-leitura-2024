@@ -18,23 +18,23 @@ namespace ClubeDaLeitura.ConsoleApp
                 if (opcaoPrincipalEscolhida == '1') ;
 
 
-                else if (opcaoPrincipalEscolhida == '2') ;
+                //else if (opcaoPrincipalEscolhida == '2') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '3') ;
+                //else if (opcaoPrincipalEscolhida == '3') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '4') ;
+                //else if (opcaoPrincipalEscolhida == '4') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '5') ;
+                //else if (opcaoPrincipalEscolhida == '5') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '6') ;
+                //else if (opcaoPrincipalEscolhida == '6') ;
 
 
 

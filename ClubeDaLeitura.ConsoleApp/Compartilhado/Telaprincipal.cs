@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClubeDaLeitura.ConsoleApp.Compartilhado
+﻿namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
     internal static class TelaPrincipal
     {
@@ -13,7 +7,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|       Clube do livro      |");
+            Console.WriteLine("|       Clube do livro                 |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();

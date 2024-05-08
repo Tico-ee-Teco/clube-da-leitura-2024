@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
@@ -17,7 +13,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s      ");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();
@@ -46,9 +42,9 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             EntidadeBase entidade = ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;
@@ -82,9 +78,9 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             EntidadeBase entidade = ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;
@@ -133,11 +129,11 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         public abstract void VisualizarRegistros(bool exibirTitulo);
 
-        protected void ApresentarErros(string[] erros)
+        protected void ApresentarErros(ArrayList erros)
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-            for (int i = 0; i < erros.Length; i++)
+            for (int i = 0; i < erros.Count; i++)
                 Console.WriteLine(erros[i]);
 
             Console.ResetColor();
@@ -149,7 +145,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|       Controle de Medicamentos       |");
+            Console.WriteLine("|       Clube do Livro                 |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();
