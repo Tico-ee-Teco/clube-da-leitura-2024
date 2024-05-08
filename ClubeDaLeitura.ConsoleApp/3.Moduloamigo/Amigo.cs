@@ -1,9 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
+
 
 namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 {
@@ -25,30 +22,28 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             Endereco = endereco;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();            
 
             if (string.IsNullOrEmpty(Nome))
-                erros[contadorErros++] = ("O campo \"nome\" é obrigatório");
+                erros.Add("O campo \"nome\" é obrigatório");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros[contadorErros++] = ("O campo \"telefone\" é obrigatório");
+                erros.Add("O campo \"telefone\" é obrigatório");
 
             if (string.IsNullOrEmpty(Nomeresponsavel))
-                erros[contadorErros++] = ("O campo \"Nome responsavel\" é obrigatório");
+                erros.Add("O campo \"Nome responsavel\" é obrigatório");
 
             if (string.IsNullOrEmpty(Endereco))
-                erros[contadorErros++] = ("O campo \"Endereço\" é obrigatório");
+                erros.Add("O campo \"Endereço\" é obrigatório");          
 
-            string[] errosFiltrados = new string[contadorErros];
+            return erros;
+        }
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
-
-
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
     }
 }

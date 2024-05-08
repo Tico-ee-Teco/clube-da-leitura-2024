@@ -6,8 +6,9 @@ using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
-    public class Reserva
+    internal class Reserva
     {
+        
         private System.DateTime dataAbertura;
 
         public Revista Revista

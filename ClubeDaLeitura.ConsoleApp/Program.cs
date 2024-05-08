@@ -1,6 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -24,6 +25,15 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaCaixa.CadastrarcaixaoTeste();
 
+            RepositorioRevista repositorioRevista = new RepositorioRevista();
+            TelaRevista telaRevista = new TelaRevista();
+            telaRevista.tipoEntidade = "Revista";
+            telaRevista.repositorio = repositorioRevista;
+
+            telaRevista.telaCaixa = telaCaixa;
+            telaRevista.repositorioCaixa = repositorioCaixa; 
+
+            telaRevista.CadastrarRevistaTeste();
 
             while (true)
             {
@@ -41,8 +51,8 @@ namespace ClubeDaLeitura.ConsoleApp
                     tela = telaCaixa;
 
 
-                else if (opcaoPrincipalEscolhida == '3') ;
-
+                else if (opcaoPrincipalEscolhida == '3') 
+                    tela = telaRevista;
 
 
                 else if (opcaoPrincipalEscolhida == '4') ;
@@ -73,7 +83,6 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 else if (operacaoEscolhida == '4')
                     tela.VisualizarRegistros(true);
-
                 
             }
             Console.ReadLine();

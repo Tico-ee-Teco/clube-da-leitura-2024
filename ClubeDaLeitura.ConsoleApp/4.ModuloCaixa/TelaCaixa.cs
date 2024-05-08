@@ -1,6 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 "Id", "Etiqueta", "Cor", "Dias de emprestimo maximo" // Adicionar revista
                 );
 
-            EntidadeBase[] caixascadastradas = repositorio.SelecionarTodos();
+            ArrayList caixascadastradas = repositorio.SelecionarTodos();
 
             foreach (Caixa caixa in caixascadastradas)
             {
@@ -50,7 +51,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Console.WriteLine("digite a Cor Da caixa");
             string cor = Console.ReadLine();
 
-            Console.WriteLine("Digite o numero de dias maximo para emprestimos:");
+            Console.WriteLine("Digite o numero de dias maximo para emprestimos: ");
             string emprestimomaximo = Console.ReadLine();
 
             //Adicionar revista

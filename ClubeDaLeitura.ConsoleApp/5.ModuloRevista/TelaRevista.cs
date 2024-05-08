@@ -1,10 +1,13 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
     internal class TelaRevista : Telabase
-    {       
+    {
+        public TelaCaixa telaCaixa = null;
+        public RepositorioCaixa repositorioCaixa = null;
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if(exibirTitulo)
@@ -29,10 +32,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
                     continue;
 
                 Console.WriteLine(
-                     //"{0, -10} | {1, -15} | {2, -15} | {3, -10} | {4, -10} | {5, -10}"
-                    // revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa, revista.StatusEmprestimo
-                    "{0, -10} | {1, -15} | {2, -15} | {3, -10} | {5, -10}",
-                    revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.StatusEmprestimo
+                     "{0, -10} | {1, -15} | {2, -15} | {3, -10} | {4, -10} | {5, -10}",
+                     revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa, revista.StatusEmprestimo                    
                 );
             }
 
@@ -51,19 +52,25 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Console.WriteLine("Digte o ano da Revista: ");
             int anoRevista = Convert.ToInt32(Console.ReadLine());
 
-            //ToDo Caixa
+            telaCaixa.VisualizarRegistros(false);
 
-            Console.WriteLine("Status Emprestimo (s ou n)");
-            bool status = Console.ReadLine() == "false";
+            Console.WriteLine("Digite o Id da caixa");
+            int idCaixa = Convert.ToInt32(Console.ReadLine());
 
-            Revista novaRevista = new Revista(titulo, numeroEdicao, anoRevista, status);
+            Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarPorId(idCaixa);
 
-            return novaRevista;
-        }
+            Console.WriteLine("Digite o valor da revista: ");
+            decimal valorRevista = Convert.ToDecimal(Console.ReadLine());
+
+            Revista novaRevista = new Revista(titulo, numeroEdicao, anoRevista, caixaSelecionada, valorRevista );
+
+            return novaRevista;        }
 
         public void CadastrarRevistaTeste()
         {
-            Revista revista = new Revista("Lendários", 2, 2000, false);
+            Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarTodos()[0];
+
+            Revista revista = new Revista("Lendários", 2, 2000, caixaSelecionada, 30); ;
             repositorio.Cadastrar(revista);
         }
     }

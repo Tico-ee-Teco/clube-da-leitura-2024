@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,7 @@ using System.Threading.Tasks;
 namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 {
     internal  class TelaAmigo : Telabase
-    {
-        public override void Registrar() { }
-
+    {        
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)
@@ -27,7 +26,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
                 "Id", "Nome", "Nome responsavel", "Telefone", "Endereço"
                 );
 
-            EntidadeBase[] amigoscadastrados = repositorio.SelecionarTodos();
+            ArrayList amigoscadastrados = repositorio.SelecionarTodos();
 
             foreach ( Amigo amigo in amigoscadastrados)
             {

@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,32 +25,31 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Cor = cor;
             DiasEmprestimo = diasemprestimo;
             //Adicionar revista
+        }
+
+        public override ArrayList Validar()
+        {
+            ArrayList erros = new ArrayList();            
+
+            if (string.IsNullOrEmpty(Etiqueta))
+                erros.Add("O campo \"Etiqueta\" é obrigatório");
+
+            if (string.IsNullOrEmpty(Cor))
+                erros.Add("O campo \"Telefone\" é obrigatório");
+
+            if (string.IsNullOrEmpty(DiasEmprestimo))
+                erros.Add("O campo \"Dias de emprestimo\" é obrigatório");
+
+            //Adicionar revista            
+
+            return erros;
+
 
         }
 
-        public override string[] Validar()
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
-
-            if (string.IsNullOrEmpty(Etiqueta))
-                erros[contadorErros++] = ("O campo \"Etiqueta\" é obrigatório");
-
-            if (string.IsNullOrEmpty(Cor))
-                erros[contadorErros++] = ("O campo \"Telefone\" é obrigatório");
-
-            if (string.IsNullOrEmpty(DiasEmprestimo))
-                erros[contadorErros++] = ("O campo \"Dias de emprestimo\" é obrigatório");
-
-            //Adicionar revista
-
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
-
-
+            throw new NotImplementedException();
         }
     }
 }

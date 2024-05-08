@@ -1,25 +1,28 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
-    public class Revista : EntidadeBase
+    internal class Revista : EntidadeBase
     {
         public string Titulo { get; set; }
         public int NumeroEdicao { get; set; }
         public int Ano { get; set; }
-        //public Caixa Caixa { get; set; }
-        public bool StatusEmprestimo { get; set; }
+        public Caixa Caixa { get; set; }
+        public bool StatusEmprestimo { get; set; } = false;
+        public decimal ValorRevista { get; set; }
+
 
         public Revista() { }
 
-        public Revista(string titulo, int numeroEdicao, int ano, bool statusEmprestimo)
+        public Revista(string titulo, int numeroEdicao, int ano, Caixa caixa, decimal valorRevista)
         {
             Titulo = titulo;
             NumeroEdicao = numeroEdicao;
             Ano = ano;
-            //Caixa = caixa;
-            StatusEmprestimo = statusEmprestimo;
+            Caixa = caixa;
+            ValorRevista = valorRevista;
         }
 
         public override ArrayList Validar()
@@ -35,8 +38,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             if (Ano < 0)
                 erros.Add("Digite um ano válido.");
 
-            if (StatusEmprestimo == null)
-                erros.Add("Favor definir um status (s ou n)");
+            if (Caixa == null)
+                erros.Add("Digite insira a caixa da resvista");
+
+
+            if (ValorRevista < 0)
+                erros.Add("Favor inserir um valor válido.");
+
+
 
             return erros;
 
@@ -49,6 +58,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             this.Titulo = novasInformacoes.Titulo;
             this.NumeroEdicao = novasInformacoes.NumeroEdicao;
             this.Ano = novasInformacoes.Ano;
+            this.Caixa = novasInformacoes .Caixa;
             this.StatusEmprestimo = novasInformacoes.StatusEmprestimo;
         }
     }
