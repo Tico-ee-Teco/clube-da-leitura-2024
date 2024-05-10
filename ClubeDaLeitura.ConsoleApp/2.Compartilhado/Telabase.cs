@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
@@ -30,6 +31,32 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
 
             return operacaoEscolhida;
+        }
+        public char apresentarmenureservas()
+        {
+
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s      ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");
+            Console.WriteLine($"3 - Excluir {tipoEntidade}");
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"5 - Fazer emprestimo ");
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            Console.Write("Escolha uma das opções: ");
+            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
+
+            return operacaoEscolhida;
+
         }
 
         protected void InserirRegistro(EntidadeBase entidade)
@@ -180,6 +207,11 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
         }
 
         protected abstract EntidadeBase ObterRegistro();
+
+        public static implicit operator Telabase(RepositorioEmprestimo v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

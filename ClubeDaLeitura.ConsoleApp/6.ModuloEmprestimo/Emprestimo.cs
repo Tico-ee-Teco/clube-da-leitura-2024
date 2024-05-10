@@ -67,26 +67,26 @@ namespace ClubeDaLeitura.ConsoleApp
         }
 
     }
-    internal class VerificarEmprestimo
-    {
-        private ArrayList Emprestimos = new ArrayList(); 
+    //internal class VerificarEmprestimo
+    //{
+    //    private ArrayList Emprestimos = new ArrayList(); 
 
-        public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
-        {       
-            foreach (Emprestimo emprestimo in Emprestimos)
-            {
-                if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
-                {
-                    Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
-                    return;
-                }
-            }
+    //    public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
+    //    {       
+    //        foreach (Emprestimo emprestimo in Emprestimos)
+    //        {
+    //            if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
+    //            {
+    //                Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
+    //                return;
+    //            }
+    //        }
          
-            Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
-            Emprestimos.Add(novoEmprestimo);
-            Console.WriteLine("Emprestimo realizado com sucesso");
-        }
-    }
+    //        Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
+    //        Emprestimos.Add(novoEmprestimo);
+    //        Console.WriteLine("Emprestimo realizado com sucesso");
+    //    }
+    //}
 
 }
 

@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
+using ClubeDaLeitura.ConsoleApp._7.ModuloReserva;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
@@ -44,6 +45,12 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.telaAmigo = telaAmigo;
             telaEmprestimo.telaRevista = telaRevista;
 
+            RepositorioReserva repositorioReserva = new RepositorioReserva();
+            TelaReserva telaReserva = new TelaReserva();
+            telaReserva.tipoEntidade = "Reserva";
+            telaReserva.repositorio = repositorioReserva;
+
+
             while (true)
             {
    
@@ -76,8 +83,31 @@ namespace ClubeDaLeitura.ConsoleApp
 
 
                     else if (opcaoPrincipalEscolhida == '4')
-                        tela = telaEmprestimo;
+                    {
+                      tela = telaReserva;
 
+                     char operacaoescolhidareserva = tela.apresentarmenureservas();
+
+                     if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
+                        continue;
+
+                    if (operacaoescolhidareserva == '1')
+                       tela.Registrar();
+
+                    else if (operacaoescolhidareserva == '2')
+                        tela.Editar();
+
+                    else if (operacaoescolhidareserva == '3')
+                        tela.Excluir();
+
+                    else if (operacaoescolhidareserva == '4')
+                        tela.VisualizarRegistros(true);
+
+                    if (operacaoescolhidareserva == '5')
+                      tela = telaEmprestimo;
+
+                    }
+                        
 
                     else if (opcaoPrincipalEscolhida == '5') ;
 
@@ -92,18 +122,20 @@ namespace ClubeDaLeitura.ConsoleApp
                     if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
                         continue;
 
-                    if (operacaoEscolhida == '1')
-                        tela.Registrar();
+                if (operacaoEscolhida == '1')
+                    tela.Registrar();
 
-                    else if (operacaoEscolhida == '2')
-                        tela.Editar();
+                else if (operacaoEscolhida == '2')
+                    tela.Editar();
 
-                    else if (operacaoEscolhida == '3')
-                        tela.Excluir();
+                else if (operacaoEscolhida == '3')
+                    tela.Excluir();
 
-                    else if (operacaoEscolhida == '4')
-                        tela.VisualizarRegistros(true);
-                   
+                else if (operacaoEscolhida == '4')
+                    tela.VisualizarRegistros(true);
+                
+                    
+
             }
      
             static bool OpcaoInvalida(char validacao)
@@ -120,6 +152,9 @@ namespace ClubeDaLeitura.ConsoleApp
                 Console.ReadLine();
 
             }
+
+           
+
         }
     }
 }
