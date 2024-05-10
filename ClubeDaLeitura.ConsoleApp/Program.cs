@@ -22,7 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
-            
+
 
             telaCaixa.CadastrarcaixaoTeste();
 
@@ -32,7 +32,7 @@ namespace ClubeDaLeitura.ConsoleApp
             telaRevista.repositorio = repositorioRevista;
 
             telaRevista.telaCaixa = telaCaixa;
-            telaRevista.repositorioCaixa = repositorioCaixa; 
+            telaRevista.repositorioCaixa = repositorioCaixa;
 
             telaRevista.CadastrarRevistaTeste();
 
@@ -46,55 +46,81 @@ namespace ClubeDaLeitura.ConsoleApp
 
             while (true)
             {
-                char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
+   
+                    char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
 
-                if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
-                    break;
+                    if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
+                    {
+                        break;
+                    }
 
-                 Telabase  tela = null;
-
-                if (opcaoPrincipalEscolhida == '1')
-                    tela = telaAmigo;
-
-                else if (opcaoPrincipalEscolhida == '2')
-                    tela = telaCaixa;
-
-
-                else if (opcaoPrincipalEscolhida == '3') 
-                    tela = telaRevista;
+                    else if (OpcaoInvalida(opcaoPrincipalEscolhida))
+                    {
+                        Mensagemdeerro();
+                    
+                        continue;
+                    }
 
 
-                else if (opcaoPrincipalEscolhida == '4') 
-                    tela = telaEmprestimo;
+                    Telabase tela = null;
+
+                    if (opcaoPrincipalEscolhida == '1')
+                        tela = telaAmigo;
+
+                    else if (opcaoPrincipalEscolhida == '2')
+                        tela = telaCaixa;
 
 
-                else if (opcaoPrincipalEscolhida == '5') ;
+                    else if (opcaoPrincipalEscolhida == '3')
+                        tela = telaRevista;
+
+
+                    else if (opcaoPrincipalEscolhida == '4')
+                        tela = telaEmprestimo;
+
+
+                    else if (opcaoPrincipalEscolhida == '5') ;
 
 
 
-                else if (opcaoPrincipalEscolhida == '6') ;
+                    else if (opcaoPrincipalEscolhida == '6') ;
 
 
 
                     char operacaoEscolhida = tela.ApresentarMenu();
 
-                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
-                    continue;
+                    if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                        continue;
 
-                if (operacaoEscolhida == '1')
-                    tela.Registrar();
+                    if (operacaoEscolhida == '1')
+                        tela.Registrar();
 
-                else if (operacaoEscolhida == '2')
-                    tela.Editar();
+                    else if (operacaoEscolhida == '2')
+                        tela.Editar();
 
-                else if (operacaoEscolhida == '3')
-                    tela.Excluir();
+                    else if (operacaoEscolhida == '3')
+                        tela.Excluir();
 
-                else if (operacaoEscolhida == '4')
-                    tela.VisualizarRegistros(true);
-                
+                    else if (operacaoEscolhida == '4')
+                        tela.VisualizarRegistros(true);
+                   
             }
-            Console.ReadLine();
+     
+            static bool OpcaoInvalida(char validacao)
+            {
+                string opcoesValidas = "12345";
+                return !opcoesValidas.Contains(validacao.ToString());
+            }
+
+            static void Mensagemdeerro()
+            {
+
+                Console.WriteLine("Digite uma opcao valida");
+
+                Console.ReadLine();
+
+            }
         }
     }
 }
+

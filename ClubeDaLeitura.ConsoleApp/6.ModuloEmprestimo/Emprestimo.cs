@@ -4,6 +4,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
 
+
 namespace ClubeDaLeitura.ConsoleApp 
 {
     internal class Emprestimo : EntidadeBase
@@ -19,7 +20,7 @@ namespace ClubeDaLeitura.ConsoleApp
             { return (DataDevolucao - DataEmprestino).Days; }             
         }
 
-
+        
         public Emprestimo(Amigo amigo, Revista revista, DateTime dataEmprestino)
         {
             Amigo = amigo;
@@ -33,6 +34,7 @@ namespace ClubeDaLeitura.ConsoleApp
             throw new NotImplementedException();
         }
 
+       
         public override ArrayList Validar()
         {
             ArrayList erros = new ArrayList();
@@ -63,7 +65,29 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             return DiasAtraso > 0;
         }
+
     }
+    internal class VerificarEmprestimo
+    {
+        private ArrayList Emprestimos = new ArrayList(); 
+
+        public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
+        {       
+            foreach (Emprestimo emprestimo in Emprestimos)
+            {
+                if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
+                {
+                    Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
+                    return;
+                }
+            }
+         
+            Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
+            Emprestimos.Add(novoEmprestimo);
+            Console.WriteLine("Emprestimo realizado com sucesso");
+        }
+    }
+
 }
 
     

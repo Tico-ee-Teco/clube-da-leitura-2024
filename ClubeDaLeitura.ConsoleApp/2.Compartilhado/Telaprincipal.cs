@@ -1,32 +1,36 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.Compartilhado
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
     internal static class TelaPrincipal
     {
         public static char ApresentarMenuPrincipal()
         {
-            Console.Clear();
+           
+                Console.Clear();
 
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|       Clube do livro                 |");
-            Console.WriteLine("----------------------------------------");
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("|       Clube do livro                 |");
+                Console.WriteLine("----------------------------------------");
 
-            Console.WriteLine();
+                Console.WriteLine();
 
-            Console.WriteLine("1 - Cadastro de Amigos");
-            Console.WriteLine("2 - Cadastro de Caixas");
-            Console.WriteLine("3 - Cadastro de Revistas");
-            Console.WriteLine("4 - Cadastro de Reservas");
-            Console.WriteLine("5 - Visualizaçao de multas");           
+                Console.WriteLine("1 - Cadastro de Amigos");
+                Console.WriteLine("2 - Cadastro de Caixas");
+                Console.WriteLine("3 - Cadastro de Revistas");
+                Console.WriteLine("4 - Cadastro de Reservas");
+                Console.WriteLine("5 - Visualizaçao de multas");
 
-            Console.WriteLine("S - Sair");
+                Console.WriteLine("S - Sair");
 
-            Console.WriteLine();
+                Console.WriteLine();
 
-            Console.Write("Escolha uma das opções: ");
+                Console.Write("Escolha uma das opções: ");
 
-            char opcaoEscolhida = Console.ReadLine()[0];
+                char opcaoEscolhida = Console.ReadLine()[0];
 
-            return opcaoEscolhida;
+                return opcaoEscolhida;
+  
         }
     }
 }
