@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ClubeDaLeitura.ConsoleApp.ModuloRevista;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
     internal class Reserva
     {
         
-        private System.DateTime dataAbertura;
+        private DateTime dataAbertura;
 
         public Revista Revista
         {

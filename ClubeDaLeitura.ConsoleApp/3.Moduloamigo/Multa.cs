@@ -1,29 +1,25 @@
-﻿namespace ClubeDaLeitura.ConsoleApp
+﻿using ClubeDaLeitura.ConsoleApp.Moduloamigo;
+
+namespace ClubeDaLeitura.ConsoleApp
 {
-    public class Multa
-    {
-        public decimal Valor
+    internal class Multa
+    {       
+        public decimal Valor { get; set; }
+        public DateTime Data { get; set; }
+        public bool EstaPaga { get; set; } = false;
+        public Amigo Amigo { get; set; }        
+
+        public Multa(decimal valor, Amigo amigo)
         {
-            get => default;
-            set
-            {
-            }
+            Valor = valor;
+            Amigo = amigo;          
         }
 
-        public DateTime Data
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public bool EstaPaga
-        {
-            get => default;
-            set
-            {
-            }
-        }
+       public void PagarMulta()
+       {
+            EstaPaga = true;
+            Amigo.TemMultaEmAberto = false; //Atualizar o ostatus do amigo
+       }
+        
     }
 }
