@@ -6,11 +6,11 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 {
     internal  class Amigo : EntidadeBase
     {
-
         public string Nome { get; set; }
         public string Nomeresponsavel { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
+        public bool TemMultaEmAberto { get; set; } = false;
 
         public Amigo() { }
 
