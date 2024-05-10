@@ -15,16 +15,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public string Cor { get; set; }
         public string DiasEmprestimo { get; set; }
        
-        //Adicionar Revista
+       
 
         public Caixa() { }
 
-        public Caixa(string etiqueta, string cor, string diasemprestimo ) //Adicionar revista
+        public Caixa(string etiqueta, string cor, string diasemprestimo ) 
         {
             Etiqueta = etiqueta;
             Cor = cor;
             DiasEmprestimo = diasemprestimo;
-            //Adicionar revista
+            
         }
 
         public override ArrayList Validar()
