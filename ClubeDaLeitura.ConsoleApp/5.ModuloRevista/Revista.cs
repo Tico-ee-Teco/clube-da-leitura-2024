@@ -45,8 +45,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             if (ValorRevista < 0)
                 erros.Add("Favor inserir um valor válido.");
 
-
-
             return erros;
 
         }

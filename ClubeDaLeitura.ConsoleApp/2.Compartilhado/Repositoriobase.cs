@@ -85,19 +85,19 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             return false;
         }
 
-        protected void RegistrarItem(EntidadeBase novoRegistro)
-        {
-            foreach (EntidadeBase entidade in registros)
-            {
-                if (entidade != null)
-                    continue;
+        //protected void RegistrarItem(EntidadeBase novoRegistro)
+        //{
+        //    foreach (EntidadeBase entidade in registros)
+        //    {
+        //        if (entidade != null)
+        //            continue;
 
-                else
-                {
-                    registros.Add(novoRegistro);
-                    break;
-                }
-            }
-        }
+        //        else
+        //        {
+        //            registros.Add(novoRegistro);
+        //            break;
+        //        }
+        //    }
+        //}
     }
 }

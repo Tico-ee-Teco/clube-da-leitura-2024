@@ -52,7 +52,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             string cor = Console.ReadLine();
 
             Console.WriteLine("Digite o numero de dias maximo para emprestimos: ");
-            string emprestimomaximo = Console.ReadLine();
+            int emprestimomaximo = Convert.ToInt32(Console.ReadLine());
 
             //Adicionar revista
 
@@ -68,7 +68,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 
         public void CadastrarcaixaoTeste()
         {
-            Caixa caixa = new Caixa("Romance", "Vermelha", "3");
+            Caixa caixa = new Caixa("Romance", "Vermelha", 3);
             repositorio.Cadastrar(caixa);
         }
     }
