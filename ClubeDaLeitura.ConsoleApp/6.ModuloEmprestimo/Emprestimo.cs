@@ -43,10 +43,10 @@ namespace ClubeDaLeitura.ConsoleApp
                 erros.Add("O amigo precisa ser preenchido");
 
             if (Revista == null)
-                erros.Add("A revista precisa ser preenchida");            
-
+                erros.Add("A revista precisa ser preenchida");              
+            
             return erros;
-        }
+        }        
 
         public decimal CalcularMulta(int dias)
         {
@@ -66,28 +66,22 @@ namespace ClubeDaLeitura.ConsoleApp
             return DiasAtraso > 0;
         }
 
-    }
-    internal class VerificarEmprestimo
-    {
-        private ArrayList Emprestimos = new ArrayList(); 
-
         public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
-        {       
+        {
+            ArrayList Emprestimos = new ArrayList();
+
             foreach (Emprestimo emprestimo in Emprestimos)
             {
                 if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
                 {
                     Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
-                    return;
                 }
             }
-         
+
             Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
             Emprestimos.Add(novoEmprestimo);
             Console.WriteLine("Emprestimo realizado com sucesso");
         }
     }
-
 }
 
-    

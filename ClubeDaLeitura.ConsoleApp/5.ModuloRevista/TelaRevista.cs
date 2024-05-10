@@ -33,7 +33,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
                 Console.WriteLine(
                      "{0, -10} | {1, -15} | {2, -15} | {3, -10} | {4, -10} | {5, -10}",
-                     revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa, revista.StatusEmprestimo                    
+                     revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa.Etiqueta, revista.StatusEmprestimo                    
                 );
             }
 
@@ -70,7 +70,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
         {
             Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarTodos()[0];
 
-            Revista revista = new Revista("Lendários", 2, 2000, caixaSelecionada, 30); ;
+            Revista revista = new Revista("Lendários", 2, 2000, caixaSelecionada, 30);
             repositorio.Cadastrar(revista);
         }
     }

@@ -62,8 +62,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
         }
 
         public void CadastraramigoTeste()
-        {
-            
+        {            
             Amigo amigo = new Amigo("Veloz", "999440807", "veloz2", "sao cristovao");
             repositorio.Cadastrar(amigo);
         }
