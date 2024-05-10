@@ -1,10 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using System;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
@@ -13,18 +10,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 
         public string Etiqueta { get; set; }
         public string Cor { get; set; }
-        public string DiasEmprestimo { get; set; }
-       
+        public int DiasEmprestimo { get; set; }
+        public Revista Revista { get; set; }
        
 
         public Caixa() { }
 
-        public Caixa(string etiqueta, string cor, string diasemprestimo ) 
+        public Caixa(string etiqueta, string cor, int diasemprestimo) 
         {
             Etiqueta = etiqueta;
             Cor = cor;
-            DiasEmprestimo = diasemprestimo;
-            
+            DiasEmprestimo = diasemprestimo;            
         }
 
         public override ArrayList Validar()
@@ -32,18 +28,18 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             ArrayList erros = new ArrayList();            
 
             if (string.IsNullOrEmpty(Etiqueta))
-                erros.Add("O campo \"Etiqueta\" é obrigatório");
+                erros.Add("O campo \"Etiqueta\" é obrigatório.");
 
             if (string.IsNullOrEmpty(Cor))
-                erros.Add("O campo \"Telefone\" é obrigatório");
+                erros.Add("O campo \"Telefone\" é obrigatório.");
 
-            if (string.IsNullOrEmpty(DiasEmprestimo))
-                erros.Add("O campo \"Dias de emprestimo\" é obrigatório");
+            if (DiasEmprestimo < 0)
+                erros.Add("O campo \"Dias de emprestimo\" precisa ter um valor maior que zero.");
 
-            //Adicionar revista            
+            if (Revista == null)
+                erros.Add("O campo \"Revista\" precisa ser preenchido.");
 
             return erros;
-
 
         }
 

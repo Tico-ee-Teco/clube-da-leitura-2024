@@ -32,6 +32,21 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             return operacaoEscolhida;
         }
 
+        protected void InserirRegistro(EntidadeBase entidade)
+        {
+            ArrayList erros = entidade.Validar();
+
+            if(erros.Count > 0)
+            {
+                ApresentarErros(erros);
+                return;
+            }
+
+            repositorio.Cadastrar(entidade);
+
+            ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
+        }
+
         public virtual void Registrar()
         {
             ApresentarCabecalho();

@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
@@ -35,6 +36,14 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaRevista.CadastrarRevistaTeste();
 
+            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
+            telaEmprestimo.tipoEntidade = "Emprestimo";
+            telaEmprestimo.repositorio = repositorioEmprestimo;
+
+            telaEmprestimo.telaAmigo = telaAmigo;
+            telaEmprestimo.telaRevista = telaRevista;
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -55,8 +64,8 @@ namespace ClubeDaLeitura.ConsoleApp
                     tela = telaRevista;
 
 
-                else if (opcaoPrincipalEscolhida == '4') ;
-
+                else if (opcaoPrincipalEscolhida == '4') 
+                    tela = telaEmprestimo;
 
 
                 else if (opcaoPrincipalEscolhida == '5') ;

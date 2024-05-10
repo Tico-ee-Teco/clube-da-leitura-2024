@@ -7,17 +7,12 @@ using System.Collections;
 namespace ClubeDaLeitura.ConsoleApp 
 {
     internal class Emprestimo : EntidadeBase
-    {
-        //ToDo
-        //Cada amigo só pode pegar uma revista por empréstimo.
-        //Mensalmente Gustavo verifica os empréstimos realizados no mês e diariamente os empréstimos que estão em aberto.
-        //Calcular data de Devolução baseando-se na Caixa da Revista
-        //Cobrar Multa para Devoluções atrasadas
+    {        
         public Amigo Amigo { get; set; }
         public Revista Revista { get; set; }
         public DateTime DataEmprestino { get; set; }
         public DateTime DataDevolucao { get; set; }
-        public bool StatusEmprestimo { get; set; }
+        public bool Concluido { get; set; } = false;
         public int DiasAtraso 
         {
             get
@@ -25,13 +20,12 @@ namespace ClubeDaLeitura.ConsoleApp
         }
 
 
-        public Emprestimo(Amigo amigo, Revista revista, DateTime dataEmprestino, DateTime dataDevolucao, bool statusEmprestimo)
+        public Emprestimo(Amigo amigo, Revista revista, DateTime dataEmprestino)
         {
             Amigo = amigo;
             Revista = revista;
             DataEmprestino = DateTime.Now;
-            DataDevolucao = dataDevolucao;
-            StatusEmprestimo = statusEmprestimo;            
+            DataDevolucao = dataEmprestino.AddDays(revista.Caixa.DiasEmprestimo);                        
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -41,7 +35,15 @@ namespace ClubeDaLeitura.ConsoleApp
 
         public override ArrayList Validar()
         {
-            throw new NotImplementedException();
+            ArrayList erros = new ArrayList();
+
+            if (Amigo == null)
+                erros.Add("O amigo precisa ser preenchido");
+
+            if (Revista == null)
+                erros.Add("A revista precisa ser preenchida");            
+
+            return erros;
         }
 
         public decimal CalcularMulta(int dias)
@@ -50,6 +52,16 @@ namespace ClubeDaLeitura.ConsoleApp
             decimal multa = valor * dias;
 
             return multa;
+        }
+
+        public void ConcluirEmprestimo()
+        {
+            Concluido = true;
+        }
+
+        public bool EstaAtrasado()
+        {
+            return DiasAtraso > 0;
         }
     }
 }
