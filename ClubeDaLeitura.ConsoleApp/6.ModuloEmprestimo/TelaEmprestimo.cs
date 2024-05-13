@@ -29,9 +29,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
         //    {
         //        ApresentarErros(erros);
         //        return;
-        //    }
-
-           
+        //    }          
 
 
         //    base.InserirRegistro(entidade);            

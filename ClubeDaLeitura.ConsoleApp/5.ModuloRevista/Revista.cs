@@ -9,9 +9,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
         public string Titulo { get; set; }
         public int NumeroEdicao { get; set; }
         public int Ano { get; set; }
-        public Caixa Caixa { get; set; }
-        public bool StatusEmprestimo { get; set; } = false;
+        public bool StatusEmprestimo { get; set; }
         public decimal ValorRevista { get; set; }
+        public Caixa Caixa { get; set; }
 
 
         public Revista() { }
@@ -23,6 +23,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Ano = ano;
             Caixa = caixa;
             ValorRevista = valorRevista;
+
+            StatusEmprestimo = false;
         }
 
         public override ArrayList Validar()
@@ -35,14 +37,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             if (NumeroEdicao < 0)
                 erros.Add("Digite um numero de edição válido.");
 
-            if (Ano < 0)
+            if (Ano < 1)
                 erros.Add("Digite um ano válido.");
 
             if (Caixa == null)
                 erros.Add("Digite insira a caixa da resvista");
 
+            if (Caixa == null)
+                erros.Add("Insira uma caixa válida.");
 
-            if (ValorRevista < 0)
+            if (ValorRevista < 1)
                 erros.Add("Favor inserir um valor válido.");
 
             return erros;
@@ -58,6 +62,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             this.Ano = novasInformacoes.Ano;
             this.Caixa = novasInformacoes .Caixa;
             this.StatusEmprestimo = novasInformacoes.StatusEmprestimo;
+        }
+
+        public void Emprestar()
+        {
+            StatusEmprestimo = true;
+        }
+
+        public void Devolver()
+        {
+            StatusEmprestimo = false;
         }
     }
 }

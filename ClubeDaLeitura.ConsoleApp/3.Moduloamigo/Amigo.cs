@@ -10,7 +10,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
         public string Nomeresponsavel { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
-        public bool TemMultaEmAberto { get; set; } = false;
+        public ArrayList HistoricoMultas { get; set; } = new ArrayList();
 
         public Amigo() { }
 

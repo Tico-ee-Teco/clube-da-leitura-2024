@@ -6,19 +6,20 @@ namespace ClubeDaLeitura.ConsoleApp
     {       
         public decimal Valor { get; set; }
         public DateTime Data { get; set; }
-        public bool EstaPaga { get; set; } = false;
+        public bool EstaPaga { get; set; }
         public Amigo Amigo { get; set; }        
 
         public Multa(decimal valor, Amigo amigo)
         {
             Valor = valor;
-            Amigo = amigo;          
+            Amigo = amigo; 
+            
+            EstaPaga = false;
         }
 
        public void PagarMulta()
        {
-            EstaPaga = true;
-            Amigo.TemMultaEmAberto = false; //Atualizar o ostatus do amigo
+            EstaPaga = true;           
        }
         
     }

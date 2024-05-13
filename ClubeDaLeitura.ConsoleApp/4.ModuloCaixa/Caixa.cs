@@ -11,17 +11,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public string Etiqueta { get; set; }
         public string Cor { get; set; }
         public int DiasEmprestimo { get; set; }
-        public Revista Revista { get; set; }
+        public ArrayList Revistas { get; set; } = new ArrayList();
        
 
         public Caixa() { }
 
-        public Caixa(string etiqueta, string cor, int diasemprestimo, Revista revista) 
+        public Caixa(string etiqueta, string cor, int diasemprestimo) 
         {
             Etiqueta = etiqueta;
             Cor = cor;
             DiasEmprestimo = diasemprestimo;   
-            Revista = revista;
+           
         }
 
         public override ArrayList Validar()
@@ -35,10 +35,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 erros.Add("O campo \"Telefone\" é obrigatório.");
 
             if (DiasEmprestimo < 0)
-                erros.Add("O campo \"Dias de emprestimo\" precisa ter um valor maior que zero.");
-
-            if (Revista == null)
-                erros.Add("O campo \"Revista\" precisa ser preenchido.");
+                erros.Add("O campo \"Dias de emprestimo\" precisa ter um valor maior que zero.");            
 
             return erros;
 
