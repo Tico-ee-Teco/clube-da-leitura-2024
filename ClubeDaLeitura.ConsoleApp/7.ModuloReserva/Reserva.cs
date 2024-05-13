@@ -12,9 +12,9 @@ namespace ClubeDaLeitura.ConsoleApp
         public Amigo Amigo { get; set; }
         public bool Expirada { get; set; } = false;
 
-        public Reserva( Revista revista, Amigo amigo)
+        public Reserva( Revista revista, Amigo amigo, DateTime dataReserva)
         {
-            DataReserva = DateTime.Now;
+            DataReserva = dataReserva;
             Revista = revista;
             Amigo = amigo;           
         }        

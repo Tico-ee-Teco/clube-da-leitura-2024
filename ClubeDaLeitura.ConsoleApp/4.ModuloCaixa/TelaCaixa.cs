@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
     internal class TelaCaixa : Telabase
     {
+        public TelaRevista telaRevista = null;
+
+        public RepositorioRevista repositorioRevista = null;
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)
@@ -54,18 +58,25 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Console.WriteLine("Digite o numero de dias maximo para emprestimos: ");
             int emprestimomaximo = Convert.ToInt32(Console.ReadLine());
 
-            
 
+            telaRevista.VisualizarRegistros(false);
 
-            Caixa caixa = new Caixa(etiqueta, cor, emprestimomaximo); 
+            Console.Write("Digite o id da Revista: ");
+            int idRevista = Convert.ToInt32(Console.ReadLine());
+
+            Revista revistaSelecionada = (Revista)repositorio.SelecionarPorId(idRevista);
+
+            Caixa caixa = new Caixa(etiqueta, cor, emprestimomaximo, revistaSelecionada); 
 
             return caixa;
         }
 
-        public void CadastrarcaixaoTeste()
-        {
-            Caixa caixa = new Caixa("Romance", "Vermelha", 3);
-            repositorio.Cadastrar(caixa);
-        }
+        //public void CadastrarcaixaoTeste()
+        //{
+        //    Revista revistaSelecionada = (Revista)repositorio.SelecionarTodos()[0];
+
+        //    Caixa caixa = new Caixa("Romance", "Vermelha", 3, revistaSelecionada);
+        //    repositorio.Cadastrar(caixa);
+        //}
     }
 }

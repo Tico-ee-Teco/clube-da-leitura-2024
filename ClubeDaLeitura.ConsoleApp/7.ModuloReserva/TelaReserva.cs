@@ -13,27 +13,26 @@ namespace ClubeDaLeitura.ConsoleApp._7.ModuloReserva
         public RepositorioAmigo repositorioAmigo = null;
         public RepositorioRevista repositorioRevista = null;
 
-        public void Registar()
-        {
-            ApresentarCabecalho();
+        //public void Registar()
+        //{
+        //    ApresentarCabecalho();
 
-            Console.WriteLine($"Cadastrando {tipoEntidade}...");
+        //    Console.WriteLine($"Cadastrando {tipoEntidade}...");
 
-            Console.WriteLine();
+        //    Console.WriteLine();
 
-            Reserva entidade = (Reserva)ObterRegistro();
+        //    Reserva entidade = (Reserva)ObterRegistro();
 
-            ArrayList erros = entidade.Validar();
+        //    ArrayList erros = entidade.Validar();
 
-            if (erros.Count > 0)
-            {
-                ApresentarErros(erros);
-                return;
-            }
+        //    if (erros.Count > 0)
+        //    {
+        //        ApresentarErros(erros);
+        //        return;
+        //    }
 
-
-            base.InserirRegistro(entidade);
-        }
+        //    base.InserirRegistro(entidade);
+        //}
 
         public override void VisualizarRegistros(bool exibirTitulo)
         {
@@ -72,19 +71,19 @@ namespace ClubeDaLeitura.ConsoleApp._7.ModuloReserva
         {
             telaAmigo.VisualizarRegistros(false);
 
-            Console.WriteLine("Digte o id do amigo");
-            int idAmigo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digte o id do amigo: ");
+            int idAmigoSelecionado = Convert.ToInt32(Console.ReadLine());
 
-            Amigo amigoSelecionado = (Amigo)repositorio.SelecionarPorId(idAmigo);
+            Amigo amigoSelecionado = (Amigo)repositorio.SelecionarPorId(idAmigoSelecionado);
 
             telaRevista.VisualizarRegistros(false);
 
-            Console.WriteLine("Digite o id da revista");
-            int idRevista = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digite o id da revista: ");
+            int idRevistaSelecionada = Convert.ToInt32(Console.ReadLine());
 
-            Revista revistaSelecionada = (Revista)repositorio.SelecionarPorId(idRevista);
+            Revista revistaSelecionada = (Revista)repositorio.SelecionarPorId(idRevistaSelecionada);
 
-            Reserva novaReserva = new Reserva(revistaSelecionada, amigoSelecionado);
+            Reserva novaReserva = new Reserva(revistaSelecionada, amigoSelecionado, DateTime.Now);
 
             return novaReserva;
 

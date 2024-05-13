@@ -66,12 +66,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
             return novaRevista;        }
 
-        public void CadastrarRevistaTeste()
-        {
-            Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarTodos()[0];
+        //public void CadastrarRevistaTeste()
+        //{
+        //    Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarTodos()[0];
 
-            Revista revista = new Revista("Lendários", 2, 2000, caixaSelecionada, 30);
-            repositorio.Cadastrar(revista);
-        }
+        //    Revista revista = new Revista("Lendários", 2, 2000, caixaSelecionada, 30);
+        //    repositorio.Cadastrar(revista);
+        //}
     }
 }

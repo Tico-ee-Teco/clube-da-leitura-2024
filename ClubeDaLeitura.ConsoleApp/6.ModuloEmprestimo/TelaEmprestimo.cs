@@ -13,26 +13,29 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
         public RepositorioAmigo repositorioAmigo = null;
         public RepositorioRevista repositorioRevista = null;
 
-        public void Registar()
-        {
-            ApresentarCabecalho();
+        //public void Registar()
+        //{
+        //    ApresentarCabecalho();
 
-            Console.WriteLine($"Cadastrando {tipoEntidade}...");
+        //    Console.WriteLine($"Cadastrando {tipoEntidade}...");
 
-            Console.WriteLine();
+        //    Console.WriteLine();
 
-            Emprestimo entidade = (Emprestimo)ObterRegistro();
+        //    Emprestimo entidade = (Emprestimo)ObterRegistro();
 
-            ArrayList erros = entidade.Validar();
+        //    ArrayList erros = entidade.Validar();
 
-            if (erros.Count > 0)
-            {
-                ApresentarErros(erros);
-                return;
-            }
+        //    if (erros.Count > 0)
+        //    {
+        //        ApresentarErros(erros);
+        //        return;
+        //    }
 
-            base.InserirRegistro(entidade);            
-        }
+           
+
+
+        //    base.InserirRegistro(entidade);            
+        //}
 
         public override void VisualizarRegistros(bool exibirTitulo)
         {

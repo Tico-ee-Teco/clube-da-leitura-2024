@@ -20,22 +20,25 @@ namespace ClubeDaLeitura.ConsoleApp
             telaAmigo.CadastraramigoTeste();
 
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+            RepositorioRevista repositorioRevista = new RepositorioRevista();
+
             TelaCaixa telaCaixa = new TelaCaixa();
+            TelaRevista telaRevista = new TelaRevista();
+
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
 
+            telaCaixa.telaRevista = telaRevista;
 
-            telaCaixa.CadastrarcaixaoTeste();
+            //telaCaixa.CadastrarcaixaoTeste();
 
-            RepositorioRevista repositorioRevista = new RepositorioRevista();
-            TelaRevista telaRevista = new TelaRevista();
             telaRevista.tipoEntidade = "Revista";
             telaRevista.repositorio = repositorioRevista;
 
             telaRevista.telaCaixa = telaCaixa;
             telaRevista.repositorioCaixa = repositorioCaixa;
 
-            telaRevista.CadastrarRevistaTeste();
+            //telaRevista.CadastrarRevistaTeste();
 
             RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
             TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
@@ -45,10 +48,19 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.telaAmigo = telaAmigo;
             telaEmprestimo.telaRevista = telaRevista;
 
+            telaEmprestimo.repositorioAmigo = repositorioamigo;
+            telaEmprestimo.repositorioRevista = repositorioRevista;
+
             RepositorioReserva repositorioReserva = new RepositorioReserva();
             TelaReserva telaReserva = new TelaReserva();
             telaReserva.tipoEntidade = "Reserva";
             telaReserva.repositorio = repositorioReserva;
+
+            telaReserva.telaAmigo = telaAmigo;
+            telaReserva.telaRevista = telaRevista;
+
+            telaReserva.repositorioAmigo = repositorioamigo;
+            telaReserva.repositorioRevista = repositorioRevista;
 
 
             while (true)

@@ -64,7 +64,7 @@ namespace ClubeDaLeitura.ConsoleApp
         public bool EstaAtrasado()
         {
             return DiasAtraso > 0;
-        }
+        }       
 
         public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
         {
