@@ -120,7 +120,7 @@ namespace ClubeDaLeitura.ConsoleApp
                     {
                         tela = telaEmprestimo;
 
-                        char operacaoemprestimoescolhido = tela.apresentarmenuemprestmo();
+                        char operacaoemprestimoescolhido = tela.apresentarmenuemprestimo();
 
                         if (operacaoemprestimoescolhido == 'S' || operacaoemprestimoescolhido == 's')
                             continue;
