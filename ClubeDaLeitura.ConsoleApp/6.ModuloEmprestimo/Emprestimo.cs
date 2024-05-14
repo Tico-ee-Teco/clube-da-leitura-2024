@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
@@ -14,7 +15,7 @@ namespace ClubeDaLeitura.ConsoleApp
         public Revista Revista { get; set; } 
         public DateTime DataEmprestino { get; set; }
         public DateTime DataDevolucao { get; set; }
-        public bool Concluido { get; set; } = false;
+        public bool Concluido { get; set; }
         public Caixa Caixa { get; set; }
         public int DiasAtraso 
         {
@@ -27,8 +28,10 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             Amigo = amigo;
             Revista = revista;
+
             DataEmprestino = DateTime.Now;
-            DataDevolucao = DataEmprestino.AddDays(revista.Caixa.DiasEmprestimo);                        
+            DataDevolucao = DataEmprestino.AddDays(Revista.Caixa.DiasEmprestimo);
+            Concluido = false;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -42,10 +45,10 @@ namespace ClubeDaLeitura.ConsoleApp
             ArrayList erros = new ArrayList();
 
             if (Amigo == null)
-                erros.Add("O amigo precisa ser preenchido");
+                erros.Add("O campo \"Amigo\" precisa ser preenchido");
 
             if (Revista == null)
-                erros.Add("A revista precisa ser preenchida");              
+                erros.Add("O campo \"Revista\" precisa ser preenchido");              
             
             return erros;
         }        
@@ -78,24 +81,24 @@ namespace ClubeDaLeitura.ConsoleApp
             return multaGerada;
         }
 
-       
+        public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
+        {
+            ArrayList Emprestimos = new ArrayList();
 
-        //public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
-        //{
-        //    ArrayList Emprestimos = new ArrayList();
+            
+            foreach (Emprestimo emprestimo in Emprestimos)
+            {
 
-        //    foreach (Emprestimo emprestimo in Emprestimos)
-        //    {
-        //        if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
-        //        {
-        //            Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
-        //        }
-        //    }
+                if (emprestimo.Amigo == amigo && emprestimo.Concluido == false)
+                {
+                    Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
+                }
+            }
 
-        //    Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
-        //    Emprestimos.Add(novoEmprestimo);
-        //    Console.WriteLine("Emprestimo realizado com sucesso");
-        //}
+            Emprestimo novoEmprestimo = new Emprestimo(amigo, revista);
+            Emprestimos.Add(novoEmprestimo);            
+            Console.WriteLine("Emprestimo realizado com sucesso");
+        }
     }
 }
 

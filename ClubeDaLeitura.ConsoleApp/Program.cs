@@ -43,7 +43,7 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.repositorio = repositorioEmprestimo;
 
             telaEmprestimo.telaAmigo = telaAmigo;
-            telaEmprestimo.telaRevista = telaRevista;
+            telaEmprestimo.telaRevista = telaRevista;           
 
             telaEmprestimo.repositorioAmigo = repositorioamigo;
             telaEmprestimo.repositorioRevista = repositorioRevista;
