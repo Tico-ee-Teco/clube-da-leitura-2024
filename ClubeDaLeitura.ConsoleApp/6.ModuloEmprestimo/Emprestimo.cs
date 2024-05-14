@@ -26,6 +26,7 @@ namespace ClubeDaLeitura.ConsoleApp
         public Emprestimo(Amigo amigo, Revista revista)
         {
             Amigo = amigo;
+        
             Revista = revista;
             DataEmprestino = DateTime.Now;
             DataDevolucao = DataEmprestino.AddDays(revista.Caixa.DiasEmprestimo);                        
@@ -78,24 +79,22 @@ namespace ClubeDaLeitura.ConsoleApp
             return multaGerada;
         }
 
-       
+        public void FazerEmprestimo(Amigo amigo, Revista revista)
+        {
+            ArrayList Emprestimos = new ArrayList();
 
-        //public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
-        //{
-        //    ArrayList Emprestimos = new ArrayList();
+            foreach (Emprestimo emprestimo in Emprestimos)
+            {
+                if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
+                {
+                    Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
+                }
+            }
 
-        //    foreach (Emprestimo emprestimo in Emprestimos)
-        //    {
-        //        if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
-        //        {
-        //            Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
-        //        }
-        //    }
-
-        //    Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
-        //    Emprestimos.Add(novoEmprestimo);
-        //    Console.WriteLine("Emprestimo realizado com sucesso");
-        //}
+            Emprestimo novoEmprestimo = new Emprestimo(amigo, revista);
+            Emprestimos.Add(novoEmprestimo);
+            Console.WriteLine("Emprestimo realizado com sucesso");
+        }
     }
 }
 

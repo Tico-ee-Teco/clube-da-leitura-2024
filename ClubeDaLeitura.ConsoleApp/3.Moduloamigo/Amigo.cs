@@ -14,6 +14,20 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 
         public Amigo() { }
 
+        public List<Emprestimo> Emprestimos { get; set; } = new List<Emprestimo>();
+
+       
+        public void AdicionarEmprestimo(Emprestimo emprestimo)
+        {
+            Emprestimos.Add(emprestimo);
+        }
+
+       
+        public void RemoverEmprestimo(Emprestimo emprestimo)
+        {
+            Emprestimos.Remove(emprestimo);
+        }
+
         public Amigo(string nome, string telefone, string nomeresponsavel, string endereco)
         {
             Nome = nome;

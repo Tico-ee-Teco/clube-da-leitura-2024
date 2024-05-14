@@ -98,7 +98,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 {
                     tela = telaReserva;
 
-                    char operacaoescolhidareserva = tela.apresentarmenureservas();
+                    char operacaoescolhidareserva = tela.ApresentarMenuReservas();
 
                     if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
                         continue;
@@ -120,7 +120,7 @@ namespace ClubeDaLeitura.ConsoleApp
                     {
                         tela = telaEmprestimo;
 
-                        char operacaoemprestimoescolhido = tela.apresentarmenuemprestimo();
+                        char operacaoemprestimoescolhido = tela.ApresentarMenuEmprestimo();
 
                         if (operacaoemprestimoescolhido == 'S' || operacaoemprestimoescolhido == 's')
                             continue;
@@ -134,15 +134,12 @@ namespace ClubeDaLeitura.ConsoleApp
                         else if (operacaoemprestimoescolhido == '3')
                             tela.VisualizarRegistros(true);
 
+                        continue;
+
                     }
                 }
 
 
-                else if (opcaoPrincipalEscolhida == '5') ;
-
-
-
-                else if (opcaoPrincipalEscolhida == '6') ;
 
 
 

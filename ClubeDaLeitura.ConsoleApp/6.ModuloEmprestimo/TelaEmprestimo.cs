@@ -13,6 +13,8 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
         public RepositorioAmigo repositorioAmigo = null;
         public RepositorioRevista repositorioRevista = null;
 
+        public RepositorioEmprestimo repositorioEmprestimo = null;
+
         public override void Registrar()
         {
             ApresentarCabecalho();
@@ -176,16 +178,27 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
             Console.WriteLine("Digite o id do amigo: ");
             int idAmigo = Convert.ToInt32(Console.ReadLine());
 
-            Amigo amigoSelecionado = (Amigo)repositorio.SelecionarPorId(idAmigo);
+            Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarPorId(idAmigo);
+
+            foreach (Emprestimo emprestimo in amigoSelecionado.Emprestimos)
+            {
+                if (!emprestimo.Concluido && emprestimo.DataDevolucao > DateTime.Now)
+                {
+                    Console.WriteLine("Este Amigo já possui um empréstimo em aberto. Não é possível fazer outro empréstimo.");
+                    return null; 
+                }
+            }
 
             telaRevista.VisualizarRegistros(false);
 
             Console.WriteLine("Digite o ID da revista: ");
             int idRevista = Convert.ToInt32(Console.ReadLine());
 
-            Revista revistaSelecionada = (Revista)repositorio.SelecionarPorId(idRevista);
+            Revista revistaSelecionada = (Revista)repositorioRevista.SelecionarPorId(idRevista);
 
             Emprestimo novoEmprestimo = new Emprestimo(amigoSelecionado, revistaSelecionada);
+
+            amigoSelecionado.AdicionarEmprestimo(novoEmprestimo);
 
             return novoEmprestimo;
         }

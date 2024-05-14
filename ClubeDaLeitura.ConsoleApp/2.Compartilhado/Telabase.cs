@@ -33,7 +33,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             return operacaoEscolhida;
         }
 
-        public char apresentarmenuemprestimo()
+        public char ApresentarMenuEmprestimo()
         {
 
             Console.Clear();
@@ -59,7 +59,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         }
 
-        public char apresentarmenureservas()
+        public char ApresentarMenuReservas()
         {
 
             Console.Clear();
