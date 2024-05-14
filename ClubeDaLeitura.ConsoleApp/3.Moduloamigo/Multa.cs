@@ -9,10 +9,10 @@ namespace ClubeDaLeitura.ConsoleApp
         public bool EstaPaga { get; set; }
         public Amigo Amigo { get; set; }        
 
-        public Multa(decimal valor, Amigo amigo)
+        public Multa(decimal valor, DateTime data)
         {
             Valor = valor;
-            Amigo = amigo; 
+            Data = data; 
             
             EstaPaga = false;
         }

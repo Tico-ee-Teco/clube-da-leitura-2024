@@ -21,12 +21,12 @@ namespace ClubeDaLeitura.ConsoleApp
         }
 
         
-        public Emprestimo(Amigo amigo, Revista revista, DateTime dataEmprestino)
+        public Emprestimo(Amigo amigo, Revista revista)
         {
             Amigo = amigo;
             Revista = revista;
             DataEmprestino = DateTime.Now;
-            DataDevolucao = dataEmprestino.AddDays(revista.Caixa.DiasEmprestimo);                        
+            DataDevolucao = DataEmprestino.AddDays(revista.Caixa.DiasEmprestimo);                        
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -56,32 +56,44 @@ namespace ClubeDaLeitura.ConsoleApp
             return multa;
         }
 
+        public void IniciarEmprestimo()
+        {
+            Revista.Emprestar();
+        }
+
         public void ConcluirEmprestimo()
         {
+            Revista.Devolver();
             Concluido = true;
         }
 
-        public bool EstaAtrasado()
+        public Multa GeraMulta()
         {
-            return DiasAtraso > 0;
-        }       
-
-        public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
-        {
-            ArrayList Emprestimos = new ArrayList();
-
-            foreach (Emprestimo emprestimo in Emprestimos)
-            {
-                if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
-                {
-                    Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
-                }
-            }
-
-            Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
-            Emprestimos.Add(novoEmprestimo);
-            Console.WriteLine("Emprestimo realizado com sucesso");
+            TimeSpan diferenca = DateTime.Now - DataDevolucao;
+            decimal valorMulta = Revista.ValorRevista * diferenca.Days;
+            Multa multaGerada = new Multa(valorMulta, DateTime.Now);
+            Amigo.HistoricoMultas.Add(multaGerada);
+            return multaGerada;
         }
+
+       
+
+        //public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
+        //{
+        //    ArrayList Emprestimos = new ArrayList();
+
+        //    foreach (Emprestimo emprestimo in Emprestimos)
+        //    {
+        //        if (emprestimo.Amigo == amigo && !emprestimo.Concluido)
+        //        {
+        //            Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
+        //        }
+        //    }
+
+        //    Emprestimo novoEmprestimo = new Emprestimo(amigo, revista, dataEmprestimo);
+        //    Emprestimos.Add(novoEmprestimo);
+        //    Console.WriteLine("Emprestimo realizado com sucesso");
+        //}
     }
 }
 
