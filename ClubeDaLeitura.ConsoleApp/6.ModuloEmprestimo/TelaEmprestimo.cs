@@ -8,7 +8,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
     internal class TelaEmprestimo : Telabase
     {
         public TelaAmigo telaAmigo = null;
-        public TelaRevista telaRevista = null;
+        public TelaRevista telaRevista = null;        
 
         public RepositorioAmigo repositorioAmigo = null;
         public RepositorioRevista repositorioRevista = null;
@@ -33,7 +33,9 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
                 return;
             }
 
-           entidade.IniciarEmprestimo();
+            entidade.FazerEmprestimo(entidade.Amigo, entidade.Revista,entidade.DataEmprestino);
+
+            //entidade.IniciarEmprestimo();
 
             base.InserirRegistro(entidade);
         }
@@ -175,7 +177,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
         {
             telaAmigo.VisualizarRegistros(false);
 
-            Console.WriteLine("Digite o id do amigo: ");
+            Console.Write("Digite o id do amigo: ");
             int idAmigo = Convert.ToInt32(Console.ReadLine());
 
             Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarPorId(idAmigo);
@@ -191,7 +193,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
 
             telaRevista.VisualizarRegistros(false);
 
-            Console.WriteLine("Digite o ID da revista: ");
+            Console.Write("Digite o ID da revista: ");            
             int idRevista = Convert.ToInt32(Console.ReadLine());
 
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionarPorId(idRevista);
@@ -203,7 +205,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
             return novoEmprestimo;
         }
 
-
+        
     }
 
     
