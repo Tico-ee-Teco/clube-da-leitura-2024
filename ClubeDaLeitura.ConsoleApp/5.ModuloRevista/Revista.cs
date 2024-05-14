@@ -57,11 +57,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
         {
             Revista novasInformacoes = (Revista)novoRegistro;
 
-            Titulo = novasInformacoes.Titulo;
-            NumeroEdicao = novasInformacoes.NumeroEdicao;
-            Ano = novasInformacoes.Ano;
-            Caixa = novasInformacoes .Caixa;
-            StatusEmprestimo = novasInformacoes.StatusEmprestimo;
+            this.Titulo = novasInformacoes.Titulo;
+            this.NumeroEdicao = novasInformacoes.NumeroEdicao;
+            this.Ano = novasInformacoes.Ano;
+            this.Caixa = novasInformacoes .Caixa;
+            this.StatusEmprestimo = novasInformacoes.StatusEmprestimo;
         }
 
         public void Emprestar()

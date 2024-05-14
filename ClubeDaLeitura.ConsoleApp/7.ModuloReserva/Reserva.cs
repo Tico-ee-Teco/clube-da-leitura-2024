@@ -34,7 +34,10 @@ namespace ClubeDaLeitura.ConsoleApp
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Reserva reserva = (Reserva)novoRegistro;
+
+            this.Revista = reserva.Revista;
+            this.Amigo = reserva.Amigo;
         }
 
         public void Expirar()
