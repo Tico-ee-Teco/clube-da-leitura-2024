@@ -11,7 +11,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if(exibirTitulo)
-            {
+            {            
                 ApresentarCabecalho();
 
                 Console.WriteLine("Vizualizando Revistas...");

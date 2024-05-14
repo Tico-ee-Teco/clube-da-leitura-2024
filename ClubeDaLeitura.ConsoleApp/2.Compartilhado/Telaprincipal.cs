@@ -5,9 +5,11 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
     internal static class TelaPrincipal
     {
         public static char ApresentarMenuPrincipal()
-        {
-           
+        {       
+
                 Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
 
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("|       Clube do livro                 |");
