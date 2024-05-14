@@ -62,7 +62,8 @@ namespace ClubeDaLeitura.ConsoleApp
 
             while (true)
             {
-   
+               
+
                     char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
 
                     if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
@@ -80,28 +81,30 @@ namespace ClubeDaLeitura.ConsoleApp
 
                     Telabase tela = null;
 
-                    if (opcaoPrincipalEscolhida == '1')
-                        tela = telaAmigo;
-
-                    else if (opcaoPrincipalEscolhida == '2')
-                        tela = telaCaixa;
 
 
-                    else if (opcaoPrincipalEscolhida == '3')
-                        tela = telaRevista;
+                if (opcaoPrincipalEscolhida == '1')
+                    tela = telaAmigo;
+
+                else if (opcaoPrincipalEscolhida == '2')
+                    tela = telaCaixa;
 
 
-                    else if (opcaoPrincipalEscolhida == '4')
-                    {
-                      tela = telaReserva;
+                else if (opcaoPrincipalEscolhida == '3')
+                    tela = telaRevista;
 
-                     char operacaoescolhidareserva = tela.apresentarmenureservas();
 
-                     if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
+                else if (opcaoPrincipalEscolhida == '4')
+                {
+                    tela = telaReserva;
+
+                    char operacaoescolhidareserva = tela.apresentarmenureservas();
+
+                    if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
                         continue;
 
                     if (operacaoescolhidareserva == '1')
-                       tela.Registrar();
+                        tela.Registrar();
 
                     else if (operacaoescolhidareserva == '2')
                         tela.Editar();
@@ -112,21 +115,39 @@ namespace ClubeDaLeitura.ConsoleApp
                     else if (operacaoescolhidareserva == '4')
                         tela.VisualizarRegistros(true);
 
+
                     if (operacaoescolhidareserva == '5')
-                      tela = telaEmprestimo;
+                    {
+                        tela = telaEmprestimo;
+
+                        char operacaoemprestimoescolhido = tela.apresentarmenuemprestimo();
+
+                        if (operacaoemprestimoescolhido == 'S' || operacaoemprestimoescolhido == 's')
+                            continue;
+
+                        if (operacaoemprestimoescolhido == '1')
+                            tela.Registrar();
+
+                        else if (operacaoemprestimoescolhido == '2')
+                            tela.Editar();
+
+                        else if (operacaoemprestimoescolhido == '3')
+                            tela.VisualizarRegistros(true);
 
                     }
-                        
-
-                    else if (opcaoPrincipalEscolhida == '5') ;
+                }
 
 
+                else if (opcaoPrincipalEscolhida == '5') ;
 
-                    else if (opcaoPrincipalEscolhida == '6') ;
+
+
+                else if (opcaoPrincipalEscolhida == '6') ;
 
 
 
                     char operacaoEscolhida = tela.ApresentarMenu();
+
 
                     if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
                         continue;
