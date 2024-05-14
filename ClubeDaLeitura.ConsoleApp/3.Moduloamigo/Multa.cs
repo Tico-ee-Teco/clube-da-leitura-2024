@@ -17,7 +17,7 @@ namespace ClubeDaLeitura.ConsoleApp
             EstaPaga = false;
         }
 
-       public void PagarMulta()
+       public void Pagar()
        {
             EstaPaga = true;           
        }

@@ -32,6 +32,61 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             return operacaoEscolhida;
         }
 
+        public void PagarMulta()
+        {
+            ApresentarCabecalho();
+
+            Console.WriteLine("Pagamento de Multas...");
+
+            VisualizarAmigosComMulta();
+
+            Console.WriteLine("Digite o id do amigo que deseja pagar a multa: ");
+            int idAmigo = Convert.ToInt32(Console.ReadLine());
+
+            Amigo amigo = (Amigo)repositorio.SelecionarPorId(idAmigo);
+
+            Console.WriteLine($"O valor da multa é de: R$ {amigo.ValorMulta}?");
+            Console.WriteLine("1 - Pagar");
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            Console.Write("Digite uma opção válida: ");
+            char opcao = Console.ReadLine()[0];
+
+            if (opcao == 'S' || opcao == 's')
+                return;
+
+            amigo.PagarMulta();
+
+            ExibirMensagem($"Multas com o valor de R$ {amigo.ValorMulta} pagas com sucesso!", ConsoleColor.Green);
+        }
+
+        private void VisualizarAmigosComMulta()
+        {
+            Console.WriteLine();
+
+            Console.WriteLine(
+                "{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -25}",
+                "Id", "Nome", "Responsável", "Telefone", "Multa"
+            );
+
+            ArrayList amigosCadastrados = ((RepositorioAmigo)repositorio).SelecionarAmigosComMulta();
+
+            foreach (Amigo amigo in amigosCadastrados)
+            {
+                if (amigo == null)
+                    continue;
+
+                Console.WriteLine(
+                    "{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -25} | {5, -15}",
+                    amigo.Id, amigo.Nome, amigo.NomeResponsavel, amigo.Telefone, amigo.Endereco, amigo.ValorMulta
+                );
+            }
+
+            Console.ReadLine();
+        }
+
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)
@@ -56,7 +111,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
                     continue;
 
                 Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -20}",
-                amigo.Id, amigo.Nome, amigo.Nomeresponsavel, amigo.Telefone, amigo.Endereco
+                amigo.Id, amigo.Nome, amigo.NomeResponsavel, amigo.Telefone, amigo.Endereco
                 );
             }
 

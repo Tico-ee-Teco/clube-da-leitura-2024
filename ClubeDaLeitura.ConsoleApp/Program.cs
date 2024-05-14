@@ -156,8 +156,10 @@ namespace ClubeDaLeitura.ConsoleApp
                         tela.Excluir();
 
                     else if (operacaoEscolhida == '4')
-                        tela.VisualizarRegistros(true);                 
+                        tela.VisualizarRegistros(true);  
 
+                    else if(operacaoEscolhida == '5')
+                        telaAmigo.PagarMulta();
             }
      
             static bool OpcaoInvalida(char validacao)
