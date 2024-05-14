@@ -23,7 +23,7 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaCaixa telaCaixa = new TelaCaixa();
 
             telaCaixa.tipoEntidade = "Caixa";
-            telaCaixa.repositorio = repositorioCaixa;            
+            telaCaixa.repositorio = repositorioCaixa;
 
             telaCaixa.CadastrarcaixaoTeste();
 
@@ -43,7 +43,7 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.repositorio = repositorioEmprestimo;
 
             telaEmprestimo.telaAmigo = telaAmigo;
-            telaEmprestimo.telaRevista = telaRevista;           
+            telaEmprestimo.telaRevista = telaRevista;
 
             telaEmprestimo.repositorioAmigo = repositorioamigo;
             telaEmprestimo.repositorioRevista = repositorioRevista;
@@ -134,8 +134,8 @@ namespace ClubeDaLeitura.ConsoleApp
                                 {
                                     case '1':
                                         tela.Registrar();
-                                        break;
-
+                                        continue;
+                                        
                                     case '2':
                                         tela.Editar();
                                         break;
@@ -158,42 +158,45 @@ namespace ClubeDaLeitura.ConsoleApp
                 switch (operacaoEscolhida)
                 {
 
-                case '1':                      
-                   tela.Registrar();
+                    case '1':
+                        tela.Registrar();
                         break;
 
-                case '2':                     
-                   tela.Editar();
+                    case '2':
+                        tela.Editar();
                         break;
 
-                case '3':
-                   tela.Excluir();
+                    case '3':
+                        tela.Excluir();
                         break;
 
-                    else if (operacaoEscolhida == '4')
-                        tela.VisualizarRegistros(true);  
+                    case '4':
+                        tela.VisualizarRegistros(true);
+                        break;
 
-                    else if(operacaoEscolhida == '5')
+                    case '5':
                         telaAmigo.PagarMulta();
+                        break;
+                }
+
+                static bool OpcaoInvalida(char validacao)
+                {
+                    string opcoesValidas = "12345";
+                    return !opcoesValidas.Contains(validacao.ToString());
+                }
+
+                static void Mensagemdeerro()
+                {
+
+                    Console.WriteLine("Digite uma opcao valida");
+
+                    Console.ReadLine();
+
+                }
+
+
+
             }
-     
-            static bool OpcaoInvalida(char validacao)
-            {
-                string opcoesValidas = "12345";
-                return !opcoesValidas.Contains(validacao.ToString());
-            }
-
-            static void Mensagemdeerro()
-            {
-
-                Console.WriteLine("Digite uma opcao valida");
-
-                Console.ReadLine();
-
-            }
-
-           
-
         }
     }
 }
