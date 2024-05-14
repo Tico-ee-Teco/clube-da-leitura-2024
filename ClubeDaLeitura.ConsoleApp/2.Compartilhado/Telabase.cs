@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
 using System.Collections;
+using System.Runtime.ConstrainedExecution;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
@@ -201,13 +202,17 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         protected void ApresentarCabecalho()
         {
+
             Console.Clear();
+
+           
 
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("|            Clube do livro            |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();
+
         }
 
         public void ExibirMensagem(string mensagem, ConsoleColor cor)

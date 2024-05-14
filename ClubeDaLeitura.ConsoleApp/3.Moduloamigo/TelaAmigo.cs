@@ -61,6 +61,13 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
         {            
             Amigo amigo = new Amigo("Veloz", "999440807", "veloz2", "sao cristovao");
             repositorio.Cadastrar(amigo);
+
+            Amigo amigo1 = new Amigo("cleber", "44794796", "Junior", "Santa maria");
+            repositorio.Cadastrar(amigo1);
+
+            Amigo amigo2 = new Amigo("Pedro", "685976956", "Maria", "Tributo");
+            repositorio.Cadastrar(amigo2);
         }
+      
     }
 }

@@ -31,11 +31,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
             {
                 ApresentarErros(erros);
                 return;
-            }
-
-            entidade.FazerEmprestimo(entidade.Amigo, entidade.Revista,entidade.DataEmprestino);
-
-            //entidade.IniciarEmprestimo();
+            }     
 
             base.InserirRegistro(entidade);
         }
@@ -177,20 +173,43 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
         {
             telaAmigo.VisualizarRegistros(false);
 
-            Console.Write("Digite o id do amigo: ");
+            Console.WriteLine("Digite o id do amigo: ");
             int idAmigo = Convert.ToInt32(Console.ReadLine());
 
             Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarPorId(idAmigo);
 
-            foreach (Emprestimo emprestimo in amigoSelecionado.Emprestimos)
-            {
-                if (!emprestimo.Concluido && emprestimo.DataDevolucao > DateTime.Now)
-                {
-                    Console.WriteLine("Este Amigo já possui um empréstimo em aberto. Não é possível fazer outro empréstimo.");
-                    return null; 
-                }
-            }
 
+            if (amigoSelecionado.Emprestimos.Any(emprestimo => !emprestimo.Concluido && emprestimo.DataDevolucao > DateTime.Now))
+            {
+                Console.WriteLine("Este Amigo já possui um empréstimo em aberto. Escolha outro amigo.", ConsoleColor.Red);
+
+              
+                List<Amigo> amigosSemEmprestimos = new List<Amigo>();
+  
+                foreach (Amigo amigo in repositorioAmigo.SelecionarTodos())
+                {
+                    if (!amigo.Emprestimos.Any(emprestimo => !emprestimo.Concluido && emprestimo.DataDevolucao > DateTime.Now))
+                    {
+                        amigosSemEmprestimos.Add(amigo);
+                    }
+                }
+                 Console.WriteLine();
+
+                foreach (Amigo amigo in amigosSemEmprestimos)
+                {
+                    Console.WriteLine("Amigos Disponiveis:");
+
+                    Console.WriteLine($"ID: {amigo.Id}  Nome: {amigo.Nome}");
+                }
+                Console.WriteLine();
+
+                Console.WriteLine("Digite o ID Do amigo que deseja escolher: ");
+                int idAmigoSelecionado = Convert.ToInt32(Console.ReadLine());
+               
+                amigoSelecionado = amigosSemEmprestimos.FirstOrDefault(amigo => amigo.Id == idAmigoSelecionado);
+            
+            }
+            
             telaRevista.VisualizarRegistros(false);
 
             Console.Write("Digite o ID da revista: ");            

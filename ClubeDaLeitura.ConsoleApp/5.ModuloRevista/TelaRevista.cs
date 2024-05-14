@@ -49,6 +49,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             string titulo = Console.ReadLine();
 
             Console.WriteLine("Digite o número da edição: ");
+            
             int numeroEdicao = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Digte o ano da Revista: ");
@@ -74,6 +75,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
             Revista revista = new Revista("Lendários", 2, 2000, caixaSelecionada, 30);
             repositorio.Cadastrar(revista);
+
+            Revista revista2 = new Revista("Spider man", 4, 1992, caixaSelecionada, 25);
+            repositorio.Cadastrar(revista2);
+
+            Revista revista3 = new Revista("Avengers", 1, 2015, caixaSelecionada, 40);
+            repositorio.Cadastrar(revista3);
+
         }
     }
 }

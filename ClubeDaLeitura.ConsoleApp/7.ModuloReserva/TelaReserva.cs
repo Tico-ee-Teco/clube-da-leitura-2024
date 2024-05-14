@@ -74,14 +74,14 @@ namespace ClubeDaLeitura.ConsoleApp._7.ModuloReserva
             Console.Write("Digte o id do amigo: ");
             int idAmigoSelecionado = Convert.ToInt32(Console.ReadLine());
 
-            Amigo amigoSelecionado = (Amigo)repositorio.SelecionarPorId(idAmigoSelecionado);
+            Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarPorId(idAmigoSelecionado);
 
             telaRevista.VisualizarRegistros(false);
 
             Console.Write("Digite o id da revista: ");
             int idRevistaSelecionada = Convert.ToInt32(Console.ReadLine());
 
-            Revista revistaSelecionada = (Revista)repositorio.SelecionarPorId(idRevistaSelecionada);
+            Revista revistaSelecionada = (Revista)repositorioRevista.SelecionarPorId(idRevistaSelecionada);
 
             Reserva novaReserva = new Reserva(revistaSelecionada, amigoSelecionado, DateTime.Now);
 

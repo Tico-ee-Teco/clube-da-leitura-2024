@@ -137,11 +137,8 @@ namespace ClubeDaLeitura.ConsoleApp
                         continue;
 
                     }
+
                 }
-
-
-
-
 
                     char operacaoEscolhida = tela.ApresentarMenu();
 

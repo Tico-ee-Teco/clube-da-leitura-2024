@@ -82,24 +82,7 @@ namespace ClubeDaLeitura.ConsoleApp
             return multaGerada;
         }
 
-        public void FazerEmprestimo(Amigo amigo, Revista revista, DateTime dataEmprestimo)
-        {
-            ArrayList Emprestimos = new ArrayList();
-
-            
-            foreach (Emprestimo emprestimo in Emprestimos)
-            {
-
-                if (emprestimo.Amigo == amigo && emprestimo.Concluido == false)
-                {
-                    Console.WriteLine("Nao e possível fazer um novo emprestimo para este amigo. Existe um emprestimo em aberto para ele.");
-                }
-            }
-
-            Emprestimo novoEmprestimo = new Emprestimo(amigo, revista);
-            Emprestimos.Add(novoEmprestimo);            
-            Console.WriteLine("Emprestimo realizado com sucesso");
-        }
+      
     }
 }
 

@@ -67,6 +67,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         {
             Caixa caixa = new Caixa("Romance", "Vermelha", 3);
             repositorio.Cadastrar(caixa);
+
+            Caixa caixa2 = new Caixa("Açao", "Roxa", 2);
+            repositorio.Cadastrar(caixa2);
+
+            Caixa caixa3 = new Caixa("Fantasia", "Amarela", 5);
+            repositorio.Cadastrar(caixa3);
         }
     }
 }
