@@ -7,15 +7,47 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
     internal  class Amigo : EntidadeBase
     {
         public string Nome { get; set; }
-        public string Nomeresponsavel { get; set; }
+        public string NomeResponsavel { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
         public ArrayList HistoricoMultas { get; set; } = new ArrayList();
+        public bool TemMulta
+        {
+            get
+            {
+                for (int i = 0; i < HistoricoMultas.Count; i++)
+                {
+                    Multa multa = (Multa)HistoricoMultas[i];
+
+                    if (!multa.EstaPaga)
+                        return true;
+                }
+
+                return false;
+            }
+        }
+
+        public decimal ValorMulta
+        {
+            get
+            {
+                decimal valor = 0;
+
+                for (int i = 0; i < HistoricoMultas.Count; i++)
+                {
+                    Multa multa = (Multa)HistoricoMultas[i];
+
+                    if (!multa.EstaPaga)
+                        valor += multa.Valor;
+                }
+
+                return valor;
+            }
+        }
 
         public Amigo() { }
 
         public List<Emprestimo> Emprestimos { get; set; } = new List<Emprestimo>();
-
        
         public void AdicionarEmprestimo(Emprestimo emprestimo)
         {
@@ -28,11 +60,11 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             Emprestimos.Remove(emprestimo);
         }
 
-        public Amigo(string nome, string telefone, string nomeresponsavel, string endereco)
+        public Amigo(string nome, string telefone, string nomeResponsavel, string endereco)
         {
             Nome = nome;
             Telefone = telefone;
-            Nomeresponsavel = nomeresponsavel;
+            NomeResponsavel = nomeResponsavel;
             Endereco = endereco;
         }
 
@@ -46,7 +78,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             if (string.IsNullOrEmpty(Telefone))
                 erros.Add("O campo \"telefone\" é obrigatório");
 
-            if (string.IsNullOrEmpty(Nomeresponsavel))
+            if (string.IsNullOrEmpty(NomeResponsavel))
                 erros.Add("O campo \"Nome responsavel\" é obrigatório");
 
             if (string.IsNullOrEmpty(Endereco))
@@ -61,8 +93,24 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 
             this.Nome = amigo.Nome;
             this.Telefone = amigo.Telefone;
-            this.Nomeresponsavel = amigo.Nomeresponsavel;
+            this.NomeResponsavel = amigo.NomeResponsavel;
             this.Endereco = amigo.Endereco;
+        }
+
+        public void Multar(Multa multa)
+        {
+            HistoricoMultas.Add(multa);
+        }
+
+        public void PagarMulta()
+        {
+            for (int i = 0; i < HistoricoMultas.Count; i++)
+            {
+                Multa multa = (Multa)HistoricoMultas[i];
+
+                if (!multa.EstaPaga)
+                    multa.Pagar();
+            }
         }
     }
 }

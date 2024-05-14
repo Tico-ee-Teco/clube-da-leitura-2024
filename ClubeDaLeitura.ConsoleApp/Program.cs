@@ -170,14 +170,12 @@ namespace ClubeDaLeitura.ConsoleApp
                    tela.Excluir();
                         break;
 
-                case '4':
-                   tela.VisualizarRegistros(true);
-                        break;
+                    else if (operacaoEscolhida == '4')
+                        tela.VisualizarRegistros(true);  
 
-                }
-                
-            
-        }
+                    else if(operacaoEscolhida == '5')
+                        telaAmigo.PagarMulta();
+            }
      
             static bool OpcaoInvalida(char validacao)
             {
