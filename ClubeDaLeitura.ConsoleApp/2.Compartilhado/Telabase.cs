@@ -130,7 +130,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (!repositorio.Existe(idEntidadeEscolhida))
             {
-                ExibirMensagem($" {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
+                ExibirMensagem($" {tipoEntidade} mencionado não existe!", ConsoleColor.DarkRed);
                 return;
             }
 
@@ -172,7 +172,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (!repositorio.Existe(idRegistroEscolhido))
             {
-                ExibirMensagem($" {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
+                ExibirMensagem($" {tipoEntidade} mencionado não existe!", ConsoleColor.DarkRed);
                 return;
             }
 
@@ -206,6 +206,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
            
+             Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("|            Clube do livro            |");
