@@ -62,103 +62,122 @@ namespace ClubeDaLeitura.ConsoleApp
 
             while (true)
             {
-               
-
-                    char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
-
-                    if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
-                    {
-                        break;
-                    }
-
-                    else if (OpcaoInvalida(opcaoPrincipalEscolhida))
-                    {
-                        Mensagemdeerro();
-                    
-                        continue;
-                    }
 
 
-                    Telabase tela = null;
+                char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
 
-
-
-                if (opcaoPrincipalEscolhida == '1')
-                    tela = telaAmigo;
-
-                else if (opcaoPrincipalEscolhida == '2')
-                    tela = telaCaixa;
-
-
-                else if (opcaoPrincipalEscolhida == '3')
-                    tela = telaRevista;
-
-
-                else if (opcaoPrincipalEscolhida == '4')
+                if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
                 {
-                    tela = telaReserva;
-
-                    char operacaoescolhidareserva = tela.ApresentarMenuReservas();
-
-                    if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
-                        continue;
-
-                    if (operacaoescolhidareserva == '1')
-                        tela.Registrar();
-
-                    else if (operacaoescolhidareserva == '2')
-                        tela.Editar();
-
-                    else if (operacaoescolhidareserva == '3')
-                        tela.Excluir();
-
-                    else if (operacaoescolhidareserva == '4')
-                        tela.VisualizarRegistros(true);
-
-
-                    if (operacaoescolhidareserva == '5')
-                    {
-                        tela = telaEmprestimo;
-
-                        char operacaoemprestimoescolhido = tela.ApresentarMenuEmprestimo();
-
-                        if (operacaoemprestimoescolhido == 'S' || operacaoemprestimoescolhido == 's')
-                            continue;
-
-                        if (operacaoemprestimoescolhido == '1')
-                            tela.Registrar();
-
-                        else if (operacaoemprestimoescolhido == '2')
-                            tela.Editar();
-
-                        else if (operacaoemprestimoescolhido == '3')
-                            tela.VisualizarRegistros(true);
-
-                        continue;
-
-                    }
-
+                    break;
                 }
 
-                    char operacaoEscolhida = tela.ApresentarMenu();
+                else if (OpcaoInvalida(opcaoPrincipalEscolhida))
+                {
+                    Mensagemdeerro();
+
+                    continue;
+                }
 
 
-                    if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
-                        continue;
+                Telabase tela = null;
 
-                    if (operacaoEscolhida == '1')
-                        tela.Registrar();
 
-                    else if (operacaoEscolhida == '2')
-                        tela.Editar();
+                switch (opcaoPrincipalEscolhida)
+                {
+                    case '1':
+                        tela = telaAmigo;
+                        break;
 
-                    else if (operacaoEscolhida == '3')
-                        tela.Excluir();
+                    case '2':
+                        tela = telaCaixa;
+                        break;
 
-                    else if (operacaoEscolhida == '4')
-                        tela.VisualizarRegistros(true);                 
+                    case '3':
+                        tela = telaRevista;
+                        break;
 
-            }
+                    case '4':
+                        tela = telaReserva;
+
+                        char operacaoescolhidareserva = tela.ApresentarMenuReservas();
+
+                        if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
+                            continue;
+
+                        switch (operacaoescolhidareserva)
+                        {
+                            case '1':
+                                tela.Registrar();
+                                break;
+
+                            case '2':
+                                tela.Editar();
+                                break;
+
+                            case '3':
+                                tela.Excluir();
+                                break;
+
+                            case '4':
+                                tela.VisualizarRegistros(true);
+                                break;
+
+                            case '5':
+                                tela = telaEmprestimo;
+
+                                char operacaoemprestimoescolhido = tela.ApresentarMenuEmprestimo();
+
+                                if (operacaoemprestimoescolhido == 'S' || operacaoemprestimoescolhido == 's')
+                                    continue;
+
+                                switch (operacaoemprestimoescolhido)
+                                {
+                                    case '1':
+                                        tela.Registrar();
+                                        break;
+
+                                    case '2':
+                                        tela.Editar();
+                                        break;
+
+                                    case '3':
+                                        tela.VisualizarRegistros(true);
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+                }
+
+
+                char operacaoEscolhida = tela.ApresentarMenu();
+
+                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                    continue;
+
+                switch (operacaoEscolhida)
+                {
+
+                case '1':                      
+                   tela.Registrar();
+                        break;
+
+                case '2':                     
+                   tela.Editar();
+                        break;
+
+                case '3':
+                   tela.Excluir();
+                        break;
+
+                case '4':
+                   tela.VisualizarRegistros(true);
+                        break;
+
+                }
+                
+            
+        }
      
             static bool OpcaoInvalida(char validacao)
             {
