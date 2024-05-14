@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.Moduloamigo;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
@@ -10,10 +11,11 @@ namespace ClubeDaLeitura.ConsoleApp
     internal class Emprestimo : EntidadeBase
     {        
         public Amigo Amigo { get; set; }
-        public Revista Revista { get; set; }
+        public Revista Revista { get; set; } 
         public DateTime DataEmprestino { get; set; }
         public DateTime DataDevolucao { get; set; }
         public bool Concluido { get; set; } = false;
+        public Caixa Caixa { get; set; }
         public int DiasAtraso 
         {
             get
@@ -21,12 +23,12 @@ namespace ClubeDaLeitura.ConsoleApp
         }
 
         
-        public Emprestimo(Amigo amigo, Revista revista, DateTime dataEmprestino)
+        public Emprestimo(Amigo amigo, Revista revista, DateTime DataEmprestino)
         {
             Amigo = amigo;
             Revista = revista;
             DataEmprestino = DateTime.Now;
-            DataDevolucao = dataEmprestino.AddDays(revista.Caixa.DiasEmprestimo);                        
+            DataDevolucao = DataEmprestino.AddDays(Revista.Caixa.DiasEmprestimo);                        
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)

@@ -32,6 +32,33 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             return operacaoEscolhida;
         }
+
+        public char apresentarmenuemprestmo()
+        {
+
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s      ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");          
+            Console.WriteLine($"3 - Visualizar {tipoEntidade}s");
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            Console.Write("Escolha uma das opções: ");
+            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
+
+            return operacaoEscolhida;
+
+
+        }
+
         public char apresentarmenureservas()
         {
 

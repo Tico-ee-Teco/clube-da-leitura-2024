@@ -65,7 +65,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
             }
 
             Console.ReadLine();
-            Console.WriteLine();
+           
         }
         protected override EntidadeBase ObterRegistro()
         {
@@ -78,7 +78,7 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
 
             telaRevista.VisualizarRegistros(false);
 
-            Console.WriteLine("Digite o número da edição: ");
+            Console.WriteLine("Digite o ID da revista: ");
             int idRevista = Convert.ToInt32(Console.ReadLine());
 
             Revista revistaSelecionada = (Revista)repositorio.SelecionarPorId(idRevista);
