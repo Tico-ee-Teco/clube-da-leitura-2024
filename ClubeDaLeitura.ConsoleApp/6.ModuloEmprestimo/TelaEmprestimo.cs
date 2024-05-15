@@ -181,7 +181,8 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
 
             if (amigoSelecionado.Emprestimos.Any(emprestimo => !emprestimo.Concluido && emprestimo.DataDevolucao > DateTime.Now))
             {
-                Console.WriteLine("Este Amigo já possui um empréstimo em aberto. Escolha outro amigo.", ConsoleColor.Red);
+
+                Console.WriteLine("Este Amigo já possui um empréstimo em aberto. Escolha outro amigo.") ;
 
               
                 List<Amigo> amigosSemEmprestimos = new List<Amigo>();
@@ -193,12 +194,14 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
                         amigosSemEmprestimos.Add(amigo);
                     }
                 }
-                 Console.WriteLine();
+
+                Console.WriteLine();
+
+                Console.WriteLine("Amigos disponiveis:");
 
                 foreach (Amigo amigo in amigosSemEmprestimos)
                 {
-                    Console.WriteLine("Amigos Disponiveis:");
-
+                   
                     Console.WriteLine($"ID: {amigo.Id}  Nome: {amigo.Nome}");
                 }
                 Console.WriteLine();

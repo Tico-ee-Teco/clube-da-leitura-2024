@@ -177,8 +177,7 @@ namespace ClubeDaLeitura.ConsoleApp
                     case '4':
                         tela.VisualizarRegistros(true);
                         break;
-
-                   
+                  
                 }
 
                 static bool OpcaoInvalida(char validacao)
