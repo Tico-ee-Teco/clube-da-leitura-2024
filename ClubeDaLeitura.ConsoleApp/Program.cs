@@ -105,7 +105,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                         if (operacaoescolhidareserva == 'S' || operacaoescolhidareserva == 's')
                             continue;
-
+                        
                         switch (operacaoescolhidareserva)
                         {
                             case '1':
@@ -153,6 +153,10 @@ namespace ClubeDaLeitura.ConsoleApp
                                 break;
                         }
                         break;
+
+                    case '5':
+                       telaAmigo.PagarMulta();
+                        continue;
                 }
 
 
@@ -180,9 +184,7 @@ namespace ClubeDaLeitura.ConsoleApp
                         tela.VisualizarRegistros(true);
                         break;
 
-                    case '5':
-                        telaAmigo.PagarMulta();
-                        break;
+                   
                 }
 
                 static bool OpcaoInvalida(char validacao)
