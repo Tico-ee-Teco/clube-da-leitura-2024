@@ -11,10 +11,8 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
         public TelaRevista telaRevista = null;        
 
         public RepositorioAmigo repositorioAmigo = null;
-        public RepositorioRevista repositorioRevista = null;
-
-        public RepositorioEmprestimo repositorioEmprestimo = null;
-
+        public RepositorioRevista repositorioRevista = null;       
+                
         public override void Registrar()
         {
             ApresentarCabecalho();
@@ -222,6 +220,17 @@ namespace ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo
             amigoSelecionado.AdicionarEmprestimo(novoEmprestimo);
 
             return novoEmprestimo;
+        }
+       
+
+        public void CadastrarEmprestimoTeste()
+        {
+            Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarTodos()[0];
+            Revista revistaSelecianada = (Revista)repositorioRevista.SelecionarTodos()[0];
+
+            Emprestimo emprestimo = new Emprestimo(amigoSelecionado, revistaSelecianada);
+
+            repositorio.Cadastrar(emprestimo);
         }
 
         

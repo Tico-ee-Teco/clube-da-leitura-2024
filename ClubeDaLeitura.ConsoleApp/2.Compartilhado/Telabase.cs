@@ -1,6 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
 using System.Collections;
-using System.Runtime.ConstrainedExecution;
+
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
@@ -48,6 +48,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
             Console.WriteLine($"2 - Editar {tipoEntidade}");          
             Console.WriteLine($"3 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"4 - Concluir {tipoEntidade}");
             Console.WriteLine("S - Voltar");
 
             Console.WriteLine();

@@ -17,11 +17,11 @@ namespace ClubeDaLeitura.ConsoleApp
         public DateTime DataDevolucao { get; set; }
         public bool Concluido { get; set; }
         public Caixa Caixa { get; set; }
-        public int DiasAtraso 
-        {
-            get
-            { return (DataDevolucao - DataEmprestino).Days; }             
-        }
+        //public int DiasAtraso 
+        //{
+        //    get
+        //    { return (DataDevolucao - DataEmprestino).Days; }             
+        //}
 
         
         public Emprestimo(Amigo amigo, Revista revista)
@@ -30,8 +30,9 @@ namespace ClubeDaLeitura.ConsoleApp
         
             Revista = revista;
 
-            DataEmprestino = DateTime.Now;
-            DataDevolucao = DataEmprestino.AddDays(Revista.Caixa.DiasEmprestimo);
+            DataEmprestino = DateTime.Now.AddDays(-4);
+            DataDevolucao = DateTime.Now;
+            //DataDevolucao = DataEmprestino.AddDays(Revista.Caixa.DiasEmprestimo);
             Concluido = false;
         }
 
@@ -57,13 +58,13 @@ namespace ClubeDaLeitura.ConsoleApp
             return erros;
         }        
 
-        public decimal CalcularMulta(int dias)
-        {
-            decimal valor = (Revista.ValorRevista * 0.10M);
-            decimal multa = valor * dias;
+        //public decimal CalcularMulta(int dias)
+        //{
+        //    decimal valor = (Revista.ValorRevista * 0.10M);
+        //    decimal multa = valor * dias;
 
-            return multa;
-        }
+        //    return multa;
+        //}
 
         public void IniciarEmprestimo()
         {
