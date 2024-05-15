@@ -150,7 +150,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                     case '5':
                        telaAmigo.PagarMulta();
-                        break;
+                        continue;
                 }
 
 
