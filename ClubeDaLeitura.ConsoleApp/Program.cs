@@ -125,7 +125,7 @@ namespace ClubeDaLeitura.ConsoleApp
                                 break;
 
                             case '5':
-                                tela = telaEmprestimo; //Emprestimo
+                                tela = telaEmprestimo; 
 
                                 char operacaoemprestimoescolhido = tela.ApresentarMenuEmprestimo();
 

@@ -11,28 +11,7 @@ namespace ClubeDaLeitura.ConsoleApp._7.ModuloReserva
         public TelaRevista telaRevista = null;
 
         public RepositorioAmigo repositorioAmigo = null;
-        public RepositorioRevista repositorioRevista = null;
-
-        //public void Registar()
-        //{
-        //    ApresentarCabecalho();
-
-        //    Console.WriteLine($"Cadastrando {tipoEntidade}...");
-
-        //    Console.WriteLine();
-
-        //    Reserva entidade = (Reserva)ObterRegistro();
-
-        //    ArrayList erros = entidade.Validar();
-
-        //    if (erros.Count > 0)
-        //    {
-        //        ApresentarErros(erros);
-        //        return;
-        //    }
-
-        //    base.InserirRegistro(entidade);
-        //}
+        public RepositorioRevista repositorioRevista = null;      
 
         public override void VisualizarRegistros(bool exibirTitulo)
         {

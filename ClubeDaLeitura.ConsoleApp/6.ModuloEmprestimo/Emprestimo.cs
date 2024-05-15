@@ -17,12 +17,6 @@ namespace ClubeDaLeitura.ConsoleApp
         public DateTime DataDevolucao { get; set; }
         public bool Concluido { get; set; }
         public Caixa Caixa { get; set; }
-        //public int DiasAtraso 
-        //{
-        //    get
-        //    { return (DataDevolucao - DataEmprestino).Days; }             
-        //}
-
         
         public Emprestimo(Amigo amigo, Revista revista)
         {
