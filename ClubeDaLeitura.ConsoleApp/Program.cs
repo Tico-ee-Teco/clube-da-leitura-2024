@@ -48,6 +48,8 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.repositorioAmigo = repositorioamigo;
             telaEmprestimo.repositorioRevista = repositorioRevista;
 
+            telaEmprestimo.CadastrarEmprestimoTeste();
+
             RepositorioReserva repositorioReserva = new RepositorioReserva();
             TelaReserva telaReserva = new TelaReserva();
             telaReserva.tipoEntidade = "Reserva";
@@ -123,7 +125,7 @@ namespace ClubeDaLeitura.ConsoleApp
                                 break;
 
                             case '5':
-                                tela = telaEmprestimo;
+                                tela = telaEmprestimo; 
 
                                 char operacaoemprestimoescolhido = tela.ApresentarMenuEmprestimo();
 
@@ -142,6 +144,10 @@ namespace ClubeDaLeitura.ConsoleApp
 
                                     case '3':
                                         tela.VisualizarRegistros(true);
+                                        break;
+
+                                    case '4':
+                                        telaEmprestimo.Concluir();
                                         break;
                                 }
                                 break;

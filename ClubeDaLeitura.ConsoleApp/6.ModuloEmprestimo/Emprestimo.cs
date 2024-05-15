@@ -17,12 +17,6 @@ namespace ClubeDaLeitura.ConsoleApp
         public DateTime DataDevolucao { get; set; }
         public bool Concluido { get; set; }
         public Caixa Caixa { get; set; }
-        public int DiasAtraso 
-        {
-            get
-            { return (DataDevolucao - DataEmprestino).Days; }             
-        }
-
         
         public Emprestimo(Amigo amigo, Revista revista)
         {
@@ -30,7 +24,8 @@ namespace ClubeDaLeitura.ConsoleApp
         
             Revista = revista;
 
-            DataEmprestino = DateTime.Now;
+            DataEmprestino = DateTime.Now.AddDays(-5);
+            //DataDevolucao = DateTime.Now;
             DataDevolucao = DataEmprestino.AddDays(Revista.Caixa.DiasEmprestimo);
             Concluido = false;
         }
@@ -55,15 +50,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 erros.Add("O campo \"Revista\" precisa ser preenchido");              
             
             return erros;
-        }        
-
-        public decimal CalcularMulta(int dias)
-        {
-            decimal valor = (Revista.ValorRevista * 0.10M);
-            decimal multa = valor * dias;
-
-            return multa;
-        }
+        }       
 
         public void IniciarEmprestimo()
         {
