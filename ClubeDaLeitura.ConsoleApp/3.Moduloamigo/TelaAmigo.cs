@@ -67,8 +67,8 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             Console.WriteLine();
 
             Console.WriteLine(
-                "{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -25}",
-                "Id", "Nome", "Responsável", "Telefone", "Multa"
+                "{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -25} | {5, -10}",
+                "Id", "Nome", "Responsável", "Telefone", "Endereço" ,"Multa R$"
             );
 
             ArrayList amigosCadastrados = ((RepositorioAmigo)repositorio).SelecionarAmigosComMulta();
