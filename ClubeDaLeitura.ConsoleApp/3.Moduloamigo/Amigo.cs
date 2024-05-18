@@ -1,10 +1,14 @@
-﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+﻿using ClubeDaLeitura.ConsoleApp._6.ModuloEmprestivo;
+using ClubeDaLeitura.ConsoleApp._7.ModuloReserva;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
 
 namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 {
-    internal  class Amigo : EntidadeBase
+    internal class Amigo : EntidadeBase
     {
         public string Nome { get; set; }
         public string NomeResponsavel { get; set; }
@@ -47,18 +51,14 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 
         public Amigo() { }
 
+
         public List<Emprestimo> Emprestimos { get; set; } = new List<Emprestimo>();
-       
+
         public void AdicionarEmprestimo(Emprestimo emprestimo)
         {
             Emprestimos.Add(emprestimo);
         }
 
-       
-        public void RemoverEmprestimo(Emprestimo emprestimo)
-        {
-            Emprestimos.Remove(emprestimo);
-        }
 
         public Amigo(string nome, string telefone, string nomeResponsavel, string endereco)
         {
@@ -70,7 +70,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
 
         public override ArrayList Validar()
         {
-            ArrayList erros = new ArrayList();            
+            ArrayList erros = new ArrayList();
 
             if (string.IsNullOrEmpty(Nome))
                 erros.Add("O campo \"nome\" é obrigatório");
@@ -82,7 +82,7 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
                 erros.Add("O campo \"Nome responsavel\" é obrigatório");
 
             if (string.IsNullOrEmpty(Endereco))
-                erros.Add("O campo \"Endereço\" é obrigatório");          
+                erros.Add("O campo \"Endereço\" é obrigatório");
 
             return erros;
         }
@@ -113,4 +113,5 @@ namespace ClubeDaLeitura.ConsoleApp.Moduloamigo
             }
         }
     }
+
 }
